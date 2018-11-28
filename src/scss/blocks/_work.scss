@@ -2,8 +2,6 @@
     // height: 88%;
     padding-left: 36px;
     padding-right: 36px;
-    padding-top: 6%;
-    padding-bottom: 6%;
     opacity: 0;
     z-index: -1;
     transition: opacity 1s linear;
@@ -13,6 +11,7 @@
     }
     &__slider {
         max-height: 70vh;
+        height: 88%;
         margin-top: auto;
         margin-bottom: auto;
         overflow: scroll;
@@ -27,7 +26,7 @@
         flex-direction: column;
         align-items: center;
         min-height: 70vh;
-        padding-bottom: 25px;
+        margin-bottom: 25px;
     }
     &__text {
         padding-top: 18px;
@@ -56,7 +55,7 @@
         text-transform: uppercase;
         letter-spacing: 1.17px;
         text-align: center;
-        padding-bottom: 4px;
+        padding-bottom: .25em;
     }
     &__subheader {
         font-size: 13px;
@@ -73,7 +72,7 @@
     }
     @media(min-width: $desktop) {
         padding-left: 10%;
-        padding-right: 10%;
+        padding-right: 14%;
         padding-top: 0;
         &__nav {
             position: absolute;
@@ -89,7 +88,9 @@
         &__media {
             order: 1;
             width: 36%;
-            padding-top: 53%;
+            padding-top: 0;
+            min-height: 52vh;
+            max-height: 560px;
         }
         &__iframe {
             // max-height: 50vh;
@@ -100,6 +101,7 @@
             line-height: 40px;
             letter-spacing: 2.04px;
             text-align: left;
+            padding-bottom: 0.8em;
         }
         &__subheader {
             font-size: 25px;
@@ -107,6 +109,7 @@
             line-height: 40px;
             letter-spacing: 2.33px;
             text-align: left;
+            padding-bottom: 1em;
         }
         &__description {
             font-size: 25px;
