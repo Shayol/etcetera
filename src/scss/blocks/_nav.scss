@@ -30,8 +30,11 @@
         cursor: pointer;
     }
     @media(min-width: $desktop) {
-        &\--bottom:after {
+        &\--bottom {
             padding-top: 45px;
+        }
+        &\--top {
+            padding-bottom: 45px;
         }
         &__label {
             font-size: 23px;

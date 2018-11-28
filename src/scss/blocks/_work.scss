@@ -1,12 +1,20 @@
 .work {
-    padding-top: 56px;
+    // padding-top: 56px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 88%;
     padding-left: 36px;
     padding-right: 36px;
     opacity: 0;
     z-index: -1;
     transition: opacity 1s linear;
+    position: relative;
+    &__nav {
+        display: none;
+    }
     &__slider {
-        max-height: 90vh;
+        max-height: 80vh;
+        padding-bottom: 20px;
         overflow: scroll;
         -ms-overflow-style: none; // IE 10+
         overflow: -moz-scrollbars-none; // Firefox
@@ -25,11 +33,18 @@
     }
     &__media {
         width: 100%;
-        min-height: 265px;
+        position: relative;
+        overflow: hidden;
+        padding-top: 100%;
+        flex-shrink: 0;
     }
     &__iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        min-height: 265px;
+        height: 100%;
+        border: 0;
     }
     &__header {
         color: #000000;
@@ -53,5 +68,51 @@
         font-size: 13px;
         line-height: 21px;
         letter-spacing: 1.18px;
+    }
+    @media(min-width: $desktop) {
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 0;
+        &__nav {
+            position: absolute;
+            display: block;
+        }
+        &__item {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        &__text {
+            flex-basis: 55%;
+        }
+        &__media {
+            order: 1;
+            width: 36%;
+            max-height: calc(100vh - 220px);
+            padding-top: 53%;
+        }
+        &__iframe {
+            // max-height: 50vh;
+        }
+        &__header {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 40px;
+            letter-spacing: 2.04px;
+            text-align: left;
+        }
+        &__subheader {
+            font-size: 25px;
+            font-weight: 700;
+            line-height: 40px;
+            letter-spacing: 2.33px;
+            text-align: left;
+        }
+        &__description {
+            font-size: 25px;
+            line-height: 40px;
+            letter-spacing: 2.61px;
+            letter-spacing: 2.61px;
+            padding-top: 16px;
+        }
     }
 }
