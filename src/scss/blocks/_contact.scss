@@ -1,7 +1,7 @@
 .contact {
     opacity: 0;
     z-index: -1;
-    transition: opacity 1s ease-out;
+    transition: opacity 1s linear;
     display: flex;
     flex-direction: column;
     justify-content: center;

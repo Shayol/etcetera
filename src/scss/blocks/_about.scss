@@ -1,15 +1,43 @@
 .about {
-    font-size: 18px;
-    padding-top: 4em;
+    padding-top: 4.5em;
     padding-left: 1.5em;
     padding-right: 1.5em;
+    font-size: 18px;
     opacity: 0;
     z-index: -1;
-    transition: opacity 1s ease-out;
+    transition: opacity 1s linear;
+    padding-bottom: 20px;
+    &__content {
+        max-height: 80vh;
+        overflow: scroll;
+        -ms-overflow-style: none; // IE 10+
+        overflow: -moz-scrollbars-none; // Firefox
+        &::-webkit-scrollbar {
+            display: none; // Safari and Chrome
+        }
+    }
     &__paragraph {
         color: #000000;
         line-height: 35px;
         letter-spacing: 1px;
-        padding-bottom: 34px;
+        padding-bottom: 2em;
+        font-size: 18px;
+        color: black;
+    }
+    &__etcetera {
+        font-style: italic;
+    }
+    @media(min-width: $desktop) {
+        padding-left: 0;
+        padding-right: 0;
+        width: 68%;
+        margin-left: auto;
+        margin-right: auto;
+        &__paragraph {
+            font-size: 32px;
+            line-height: 40px;
+            font-family: Arial;
+            letter-spacing: 2.61px;
+        }
     }
 }

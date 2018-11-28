@@ -5,9 +5,6 @@
     &\--bottom {
         margin-top: auto;
         background-color: white;
-        &__label {
-            padding-top: 20px;
-        }
     }
     &__wrapper {
         position: relative;
@@ -29,5 +26,11 @@
         letter-spacing: 2.61px;
         text-transform: uppercase;
         cursor: pointer;
+    }
+    @media(min-width: $desktop) {
+        &__label {
+            font-size: 23px;
+            letter-spacing: 4px;
+        }
     }
 }
