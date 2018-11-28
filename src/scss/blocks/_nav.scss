@@ -4,15 +4,19 @@
     width: 100%;
     &\--bottom {
         margin-top: auto;
+        background-color: white;
+        &__label {
+            padding-top: 20px;
+        }
     }
     &__wrapper {
         position: relative;
     }
-    &__checkbox {
+    &__radio {
         position: absolute;
         opacity: 0;
         z-index: -1;
-        &:checked~.work__label {
+        &:checked~.nav__label {
             color: #747474;
         }
     }
