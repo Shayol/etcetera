@@ -7,8 +7,10 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    top: 25px;
     &__item {
         text-align: center;
+        font-size: 19px;
     }
     &__header {
         font-size: 19px;
@@ -26,6 +28,25 @@
     }
     &__mail,
     &__phone {
-        padding-bottom: 36px;
+        padding-bottom: 2em;
+    }
+    @media(min-width: $desktop) {
+        &__header {
+            font-size: 35px;
+            line-height: 60px;
+            letter-spacing: 2px;
+        }
+        &__item {
+            font-size: 35px;
+        }
+        &__text {
+            font-size: 35px;
+            line-height: 60px;
+            letter-spacing: 2px;
+        }
+        &__mail,
+        &__phone {
+            padding-bottom: 1.8em;
+        }
     }
 }

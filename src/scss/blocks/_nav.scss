@@ -5,6 +5,8 @@
     &\--bottom {
         margin-top: auto;
         background-color: white;
+        position: relative;
+        padding-top: 25px;
     }
     &__wrapper {
         position: relative;
@@ -28,6 +30,9 @@
         cursor: pointer;
     }
     @media(min-width: $desktop) {
+        &\--bottom:after {
+            padding-top: 45px;
+        }
         &__label {
             font-size: 23px;
             letter-spacing: 4px;
