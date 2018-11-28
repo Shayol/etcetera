@@ -2,6 +2,9 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    &\--top {
+        padding-bottom: 25px;
+    }
     &\--bottom {
         margin-top: auto;
         background-color: white;

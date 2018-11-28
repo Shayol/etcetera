@@ -70,6 +70,9 @@
         letter-spacing: 1.18px;
     }
     @media(min-width: $desktop) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         padding-left: 10%;
         padding-right: 10%;
         padding-top: 0;
