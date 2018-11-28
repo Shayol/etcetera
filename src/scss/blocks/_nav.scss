@@ -1,0 +1,29 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    &\--bottom {
+        margin-top: auto;
+    }
+    &__wrapper {
+        position: relative;
+    }
+    &__checkbox {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        &:checked~.work__label {
+            color: #747474;
+        }
+    }
+    &__label {
+        color: #000000;
+        font-family: "Arial Black";
+        font-size: 15px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 2.61px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}

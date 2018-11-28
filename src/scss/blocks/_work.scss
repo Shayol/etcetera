@@ -1,0 +1,44 @@
+.work {
+    padding-top: 56px;
+    padding-left: 36px;
+    padding-right: 36px;
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__text {
+        padding-top: 15px;
+    }
+    &__media {
+        width: 100%;
+        min-height: 265px;
+    }
+    &__iframe {
+        width: 100%;
+        min-height: 265px;
+    }
+    &__header {
+        color: #000000;
+        font-family: "Arial Black";
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1.17px;
+        text-align: center;
+    }
+    &__subheader {
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 40px;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        text-align: center;
+    }
+    &__description {
+        font-size: 13px;
+        line-height: 21px;
+        letter-spacing: 1.18px;
+    }
+}

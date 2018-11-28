@@ -13,11 +13,11 @@
         <!-- nav -->
         <nav class="nav nav--top">
             <div class="nav__wrapper">
-                <input type="checkbox" name="nav" id="home-nav" class="nav__checkbox" checked="checked">
+                <input type="checkbox" name="nav" data-id="home" id="home-nav" class="nav__checkbox js-nav" checked="checked">
                 <label class="nav__label" for="home-nav">home</label>
             </div>
             <div class="nav__wrapper">
-                <input type="checkbox" name="nav" id="work-nav" class="nav__checkbox">
+                <input type="checkbox" name="nav" data-id="work" id="work-nav" class="nav__checkbox js-nav">
                 <label class="nav__label" for="work-nav">work</label>
             </div>
         </nav>
@@ -26,13 +26,13 @@
         <div class="content">
 
             <!-- home -->
-            <div class="home">
+            <div class="home content__item active">
                 etcetera
             </div>
             <!-- home end -->
 
             <!-- about -->
-            <div class="about">
+            <div class="about content__item js-content-item">
                 <p class="paragraph">
                     <i>etcetera</i> is a design studio.
                 </p>
@@ -55,7 +55,7 @@
             <!-- about end -->
 
             <!-- contact -->
-            <div class="contact">
+            <div class="contact content__item js-content-item">
                 <div class="contact__item">
                     <h2 class="contact__header">Email</h2>
                     <a href="mailto:info@etctec.com" class="contact__mail">info@etctec.com</a>
@@ -74,44 +74,44 @@
                     </p>
                 </address>
             </div>
-        </div>
-        <!-- contact end -->
-        <!-- work -->
-        <div class="work">
-            <div class="work__item">
-                <div class="work__media">
-                    <iframe src="https://zorro.etctec.com/" allow="autoplay; encrypted-media"></iframe>
+            <!-- contact end -->
+            <!-- work -->
+            <div class="work content__item js-content-item">
+                <div class="work__item">
+                    <div class="work__media">
+                        <iframe class="work__iframe" src="https://zorro.etctec.com/" allow="autoplay; encrypted-media"></iframe>
+                    </div>
+                    <div class="work__text">
+                        <h2 class="work__header">
+                            zorro
+                        </h2>
+                        <h3 class="work__subheader">
+                            interactive web art
+                        </h3>
+                        <p class="work__description">
+                            Currently developing the album artwork for original soundtrack ZORRO. A multimedia
+                            experience
+                            that uses the web browser as the art canvas of the 21st century.
+                        </p>
+                    </div>
                 </div>
-                <article class="work__text">
-                    <h2 class="work__header">
-                        zorro
-                    </h2>
-                    <h3 class="work__subheader">
-                        interactive web art
-                    </h3>
-                    <p class="work__description">
-                        Currently developing the album artwork for original soundtrack ZORRO. A multimedia experience
-                        that uses the web browser as the art canvas of the 21st century.
-                    </p>
-                </article>
+
             </div>
+            <!-- work end -->
+        </div>
 
-        </div>
-        <!-- work end -->
-    </div>
-
-    <!-- nav -->
-    <nav class="nav nav--bottom">
-        <div class="nav__wrapper">
-            <input type="checkbox" name="nav" id="about-nav" class="nav__checkbox">
-            <label class="nav__label" for="about-nav">about</label>
-        </div>
-        <div class="nav__wrapper">
-            <input type="checkbox" name="nav" id="about-nav" class="nav__checkbox">
-            <label class="nav__label" for="">contact</label>
-        </div>
-    </nav>
-    <!-- nav end -->
+        <!-- nav -->
+        <nav class="nav nav--bottom">
+            <div class="nav__wrapper">
+                <input type="checkbox" name="nav" data-id="about" id="about-nav" class="nav__checkbox js-nav">
+                <label class="nav__label" for="about-nav">about</label>
+            </div>
+            <div class="nav__wrapper">
+                <input type="checkbox" name="nav" data-id="contact" id="about-nav" class="nav__checkbox js-nav">
+                <label class="nav__label" for="">contact</label>
+            </div>
+        </nav>
+        <!-- nav end -->
     </div>
 </body>
 

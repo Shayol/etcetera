@@ -1,0 +1,15 @@
+.about {
+    font-size: 18px;
+    padding-top: 4em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 1s ease-out;
+    &__paragraph {
+        color: #000000;
+        line-height: 35px;
+        letter-spacing: 1px;
+        padding-bottom: 34px;
+    }
+}
