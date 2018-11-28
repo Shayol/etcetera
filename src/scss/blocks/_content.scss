@@ -2,10 +2,13 @@
     position: relative;
     flex-grow: 1;
     overflow: hidden;
+    display: flex;
+    align-items: center;
     &__item {
         position: absolute;
         top: 0;
         left: 0;
+        right: 0;
         bottom: 0;
         max-height: 100%;
         height: 100%;
@@ -14,6 +17,9 @@
     }
     @media(min-width: $desktop) {
         max-width: 1320px;
-        &__item {}
+        &__item {
+            max-width: 1320px;
+            width: 100%;
+        }
     }
 }
