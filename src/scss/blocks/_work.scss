@@ -1,10 +1,10 @@
 .work {
     // padding-top: 56px;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 88%;
+    height: 100%;
     padding-left: 36px;
     padding-right: 36px;
+    padding-top: 6%;
+    padding-bottom: 6%;
     opacity: 0;
     z-index: -1;
     transition: opacity 1s linear;
@@ -14,7 +14,6 @@
     }
     &__slider {
         max-height: 80vh;
-        padding-bottom: 20px;
         overflow: scroll;
         -ms-overflow-style: none; // IE 10+
         overflow: -moz-scrollbars-none; // Firefox
@@ -26,7 +25,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 90vh;
+        min-height: 80vh;
+        padding-bottom: 20px;
     }
     &__text {
         padding-top: 15px;
@@ -90,7 +90,7 @@
         &__media {
             order: 1;
             width: 36%;
-            max-height: calc(100vh - 220px);
+            max-height: 100%;
             padding-top: 53%;
         }
         &__iframe {
