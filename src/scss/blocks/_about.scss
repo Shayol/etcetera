@@ -28,9 +28,12 @@
         font-style: italic;
     }
     @media(min-width: $desktop) {
-        padding-left: 16%;
-        padding-right: 16%;
+        padding: 5em 0 0 0;
         font-size: 32px;
+        &__content {
+            padding-left: 16%;
+            padding-right: 16%;
+        }
         &__paragraph {
             font-size: 32px;
             line-height: 40px;

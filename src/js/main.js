@@ -22,6 +22,8 @@ window.addEventListener('load', function () {
         });
     });
 
+    //observe items showing in viewport in wrk section
+
     const intersectionObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
             if (entry.intersectionRatio > 0) {
@@ -35,7 +37,7 @@ window.addEventListener('load', function () {
             }
 
         });
-    });
+    }, { threshold: 0.6 });
 
     workItem.forEach((element) => intersectionObserver.observe(element));
 

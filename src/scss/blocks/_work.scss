@@ -37,6 +37,11 @@
         overflow: hidden;
         padding-top: 100%;
         flex-shrink: 0;
+        &\--background {
+            background-image: url('../img/onda-vega.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     }
     &__iframe {
         position: absolute;
@@ -71,6 +76,7 @@
         text-transform: uppercase;
         letter-spacing: 1.4px;
         text-align: center;
+        font-style: italic;
     }
     &__paragraph {
         font-size: 13px;
@@ -110,7 +116,7 @@
         &__item {
             flex-direction: row;
             justify-content: space-between;
-            &:nth-child(odd) {
+            &:nth-child(even) {
                 .work__media {
                     order: 1;
                 }
@@ -122,7 +128,7 @@
         &__media {
             width: 36%;
             padding-top: 0;
-            min-height: 52vh;
+            min-height: 55vh;
             max-height: 560px;
         }
         &__iframe {
