@@ -26,7 +26,7 @@
         flex-direction: column;
         align-items: center;
         min-height: 70vh;
-        margin-bottom: 25px;
+        margin-bottom: 5vh;
     }
     &__text {
         padding-top: 18px;
@@ -41,6 +41,7 @@
             background-image: url('../img/onda-vega.gif');
             background-repeat: no-repeat;
             background-size: cover;
+            background-position: 50%;
         }
     }
     &__iframe {
@@ -89,6 +90,52 @@
     &__bold {
         font-weight: 700;
     }
+    @media(min-width: $tablet) {
+        &__slider {
+            height: 100%;
+        }
+        &__media {
+            width: 35vw;
+            padding-top: 60vw; // padding-top: ;
+        }
+        &__header {
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 30px;
+            letter-spacing: 1.4px;
+            text-align: left;
+            padding-bottom: 1em;
+        }
+        &__subheader {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 30px;
+            letter-spacing: 1.6px;
+            text-align: left;
+            padding-bottom: 1em;
+        }
+        &__description {
+            padding-top: 16px;
+        }
+        &__paragraph {
+            font-size: 16px;
+            line-height: 40px;
+            line-height: 30px;
+            letter-spacing: 1.6px;
+        }
+        &__item {
+            flex-direction: row;
+            justify-content: space-between;
+            &:nth-child(even) {
+                .work__media {
+                    order: 1;
+                }
+            }
+        }
+        &__text {
+            flex-basis: 45%;
+        }
+    }
     @media(min-width: $desktop) {
         padding-left: 10%;
         padding-right: 14%;
@@ -97,9 +144,10 @@
             position: absolute;
             display: flex;
             flex-direction: column;
-            right: 0;
+            right: 60px;
             top: 50%;
             transform: translateY(-50%);
+            position: fixed;
         }
         &__nav-link {
             width: 15px;
@@ -126,9 +174,9 @@
             flex-basis: 55%;
         }
         &__media {
-            width: 36%;
-            padding-top: 0;
-            min-height: 55vh;
+            width: 35%;
+            padding-top: 52vmin; //
+            // min-height: 60vh;
             max-height: 560px;
         }
         &__iframe {
@@ -163,6 +211,14 @@
             line-height: 40px;
             letter-spacing: 2.61px;
             letter-spacing: 2.61px;
+        }
+    }
+    @media(min-width: $big-desktop) {
+        &__media {
+            width: 30%;
+            padding-top: 80vmin; //
+            // min-height: 60vh;
+            max-height: 560px;
         }
     }
 }

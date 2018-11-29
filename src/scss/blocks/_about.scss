@@ -1,13 +1,13 @@
 .about {
     padding-top: 3em;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
     font-size: 18px;
     opacity: 0;
     z-index: -1;
     transition: opacity 1s linear;
     padding-bottom: 20px;
     &__content {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
         max-height: 80vh;
         overflow: scroll;
         -ms-overflow-style: none; // IE 10+
@@ -26,6 +26,9 @@
     }
     &__etcetera {
         font-style: italic;
+    }
+    @media(min-width: $tablet) {
+        padding-top: 3em;
     }
     @media(min-width: $desktop) {
         padding: 5em 0 0 0;
