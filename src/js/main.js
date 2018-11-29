@@ -1,9 +1,11 @@
 import "@babel/polyfill";
+require('intersection-observer');
 import "../scss/main.scss";
 
 window.addEventListener('load', function () {
     var navs = document.querySelectorAll(".js-nav");
-    var contentItems = document.querySelectorAll(".js-content-item");
+    var workItem = document.querySelectorAll(".work__item");
+    var scrollNav = document.querySelectorAll(".work__nav-link");
 
     navs.forEach(function (el) {
         el.addEventListener('change', function () {
@@ -19,5 +21,22 @@ window.addEventListener('load', function () {
             }
         });
     });
+
+    const intersectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.intersectionRatio > 0) {
+                scrollNav.forEach(nav => {
+                    nav.classList.remove("scrolled");
+                    if (entry.target.id == nav.href.split("#")[1]) {
+                        nav.classList.add("scrolled");
+                    }
+                })
+
+            }
+
+        });
+    });
+
+    workItem.forEach((element) => intersectionObserver.observe(element));
 
 });
