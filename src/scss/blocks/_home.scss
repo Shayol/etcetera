@@ -5,7 +5,10 @@
     align-items: center;
     opacity: 0;
     z-index: -1;
-    transition: opacity 1s linear;
+    transition: opacity 0.6s linear;
     height: 100%;
-    font-size: 20vmin;
+    &__text {
+        font-size: 20vmin;
+        font-family: "Arial Black";
+    }
 }
