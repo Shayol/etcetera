@@ -3,8 +3,9 @@
     flex-grow: 1;
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     &__item {
+        transition: opacity 0.4s ease;
         position: absolute;
         top: 0;
         left: 0;

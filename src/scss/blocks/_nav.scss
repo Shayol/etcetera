@@ -37,12 +37,15 @@
         letter-spacing: 2.61px;
         text-transform: uppercase;
         cursor: pointer;
+        &:hover {
+            color: #747474;
+        }
     }
     @media(min-width: $desktop) {
-        padding-bottom: 50px;
-        padding-top: 50px;
+        padding-bottom: 4.6vh;
+        padding-top: 4.6vh;
         &__label {
-            font-size: 23px;
+            font-size: 1.6vw;
             letter-spacing: 4px;
         }
     }

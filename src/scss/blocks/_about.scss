@@ -1,11 +1,9 @@
 .about {
-    padding-top: 3em;
-    font-size: 18px;
     opacity: 0;
     z-index: -1;
-    transition: opacity 0.6s linear;
-    padding-bottom: 20px;
     &__content {
+        padding-top: 3em;
+        font-size: 18px;
         padding-left: 1.5em;
         padding-right: 1.5em;
         max-height: 80vh;
@@ -27,24 +25,20 @@
     &__etcetera {
         font-style: italic;
     }
-    @media(min-width: $tablet) {
-        padding-top: 3em;
-    }
     @media(min-width: $desktop) {
-        padding: 3em 0 0 0;
-        font-size: 32px;
         &__content {
+            padding-top: 8.6vh;
             padding-left: 16%;
             padding-right: 16%;
         }
         &__paragraph {
-            font-size: 32px;
-            line-height: 40px;
+            font-size: 2.22vw;
+            line-height: 1.25em;
             font-family: Arial;
-            letter-spacing: 2.61px;
+            letter-spacing: .0815em;
             padding-bottom: 1.5em;
             &:first-child {
-                padding-bottom: 2.2em;
+                padding-bottom: 2.5em;
             }
         }
     }
