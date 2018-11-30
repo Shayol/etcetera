@@ -4,12 +4,13 @@
     opacity: 0;
     z-index: -1;
     position: static;
+    width: 100%;
     &__nav {
         display: none;
     }
     &__slider {
         max-height: 80vh; // padding-top: 5%;
-        height: 88%;
+        height: 77vh;
         overflow-y: scroll;
         overflow-x: hidden;
         -ms-overflow-style: none; // IE 10+
@@ -22,9 +23,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 60vh;
-        padding-top: 5vh;
-        padding-bottom: 5vh;
+        min-height: 77vh;
     }
     &__text {
         padding-top: 18px;
@@ -89,63 +88,20 @@
     &__bold {
         font-weight: 700;
     }
-    @media(min-width: $tablet) {
-        padding-left: 8%;
-        padding-right: 12%;
-        &__media {
-            width: 36%;
-            padding-top: 52%;
-        }
-        &__header {
-            font-size: 24px;
-            font-weight: 900;
-            line-height: 1.25em;
-            letter-spacing: 1.4px;
-            text-align: left;
-            padding-bottom: 1em;
-        }
-        &__subheader {
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 30px;
-            letter-spacing: 1.6px;
-            text-align: left;
-            padding-bottom: 1em;
-        }
-        &__description {
-            padding-top: 16px;
-        }
-        &__paragraph {
-            font-size: 18px;
-            line-height: 40px;
-            line-height: 30px;
-            letter-spacing: 1.6px;
-        }
-        &__item {
-            flex-direction: row;
-            justify-content: space-between;
-            &:nth-child(even) {
-                .work__media {
-                    order: 1;
-                }
-            }
-        }
-        &__text {
-            flex-basis: 55%;
-        }
-    }
     @media(min-width: $desktop) {
-        padding-left: 10%;
-        padding-right: 14%;
+        padding-left: 8.8vw;
+        padding-right: 12.65vw;
         padding-top: 0;
         &__nav {
             position: absolute;
             display: flex;
             flex-direction: column;
-            right: 60px;
+            right: 4vw;
             top: 50%;
             transform: translateY(-50%);
             position: fixed;
+            width: 1.5vw;
+            margin-right: -0.5vw;
         }
         &__nav-link {
             width: 1vw;
@@ -174,7 +130,7 @@
             font-size: 0.8vw;
             text-transform: uppercase;
             position: absolute;
-            right: 110%;
+            right: 120%;
             top: 50%;
             transform: translateY(-50%);
             text-decoration: none;
@@ -192,11 +148,11 @@
             }
         }
         &__text {
-            flex-basis: 55%;
+            width: 38.18vw;
         }
         &__media {
-            width: 36%; // padding-top: 52vmin; //52vmin
-            padding-top: 52%; // min-height: 60vh;
+            width: 25vw; // padding-top: 52vmin; //52vmin
+            padding-top: 36.74vw; // min-height: 60vh;
         }
         &__iframe {
             // max-height: 50vh;
@@ -207,29 +163,28 @@
             left: 50%;
         }
         &__header {
-            font-size: 32px;
+            font-size: 2.22vw;
             font-weight: 900;
             line-height: 1.25em;
-            letter-spacing: 2.04px;
+            letter-spacing: 0.06375em;
             text-align: left;
             padding-bottom: 0.6em;
         }
         &__subheader {
-            font-size: 25px;
+            font-size: 1.7vw;
             font-weight: 700;
-            line-height: 40px;
-            letter-spacing: 2.33px;
+            line-height: 1.6em;
+            letter-spacing: 0.0932em;
             text-align: left;
             padding-bottom: 1em;
         }
         &__description {
-            padding-top: 16px;
+            padding-top: 1.56vh;
         }
         &__paragraph {
-            font-size: 25px;
-            line-height: 40px;
-            letter-spacing: 2.61px;
-            letter-spacing: 2.61px;
+            font-size: 1.7vw;
+            line-height: 1.6em;
+            letter-spacing: 0.1em;
         }
     } // @media(min-width: $big-desktop) {
     //     padding-left: 12%;

@@ -6,6 +6,9 @@ window.addEventListener('load', function () {
     var navs = document.querySelectorAll(".js-nav");
     var workItem = document.querySelectorAll(".work__item");
     var scrollNav = document.querySelectorAll(".work__nav-link");
+    var merch = document.querySelectorAll("merch-photo");
+
+    //navigation
 
     navs.forEach(function (el) {
         el.addEventListener('change', function () {
@@ -40,5 +43,15 @@ window.addEventListener('load', function () {
     }, { threshold: 0.6 });
 
     workItem.forEach((element) => intersectionObserver.observe(element));
+
+    //origami merch show hide 
+    merch.forEach((el, index) => {
+
+        el.addEventListener('click', e => {
+            el.style.opacity = '0';
+            merch[index ? 1 : 0].style.opacity = '1';
+        });
+    });
+
 
 });
