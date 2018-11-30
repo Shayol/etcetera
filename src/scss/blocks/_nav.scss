@@ -3,8 +3,11 @@
     justify-content: space-between;
     width: 100%;
     flex-shrink: 0;
+    z-index: 20;
     &\--top {
         padding-bottom: 25px;
+        padding-top: 5px;
+        margin-top: -5px;
     }
     &\--bottom {
         margin-top: auto;
@@ -25,7 +28,7 @@
     }
     &__label {
         color: #000000;
-        font-family: "Arial Black";
+        font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
         font-size: 15px;
         display: block;
         font-weight: 900;
