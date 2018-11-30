@@ -6,14 +6,15 @@
     z-index: 20;
     &\--top {
         padding-bottom: 25px;
-        padding-top: 5px;
-        margin-top: -5px;
+        padding-top: 25px;
+        position: relative;
     }
     &\--bottom {
         margin-top: auto;
         background-color: white;
         position: relative;
         padding-top: 25px;
+        padding-bottom: 25px;
     }
     &__wrapper {
         position: relative;
@@ -38,12 +39,8 @@
         cursor: pointer;
     }
     @media(min-width: $desktop) {
-        &\--bottom {
-            padding-top: 45px;
-        }
-        &\--top {
-            padding-bottom: 45px;
-        }
+        padding-bottom: 50px;
+        padding-top: 50px;
         &__label {
             font-size: 23px;
             letter-spacing: 4px;
