@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
     var navs = document.querySelectorAll(".js-nav");
     var workItem = document.querySelectorAll(".work__item");
     var scrollNav = document.querySelectorAll(".work__nav-link");
-    var merch = document.querySelectorAll("merch-photo");
+    var merch = document.querySelectorAll(".merch-photo");
 
     //navigation
 
@@ -49,7 +49,9 @@ window.addEventListener('load', function () {
 
         el.addEventListener('click', e => {
             el.style.opacity = '0';
-            merch[index ? 1 : 0].style.opacity = '1';
+            el.style.zIndex = '-1';
+            merch[index ? 0 : 1].style.opacity = '1';
+            merch[index ? 0 : 1].style.zIndex = '1';
         });
     });
 
