@@ -2,7 +2,7 @@
     opacity: 0;
     z-index: -1;
     &__content {
-        // padding-top: 3em;
+        padding-top: 8.6vh;
         font-size: 18px;
         padding-left: 1.5em;
         padding-right: 1.5em;
@@ -30,7 +30,7 @@
         flex-direction: column;
         justify-content: center;
         &__content {
-            // padding-top: 8.6vh;
+            padding-top: 0;
             padding-left: 16%;
             padding-right: 16%;
             max-height: 76vh;

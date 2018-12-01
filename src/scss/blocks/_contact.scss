@@ -30,21 +30,21 @@
     }
     @media(min-width: $desktop) {
         &__header {
-            font-size: 35px;
-            line-height: 60px;
-            letter-spacing: 2px;
+            font-size: 2.43vw;
+            line-height: 1.71em;
+            letter-spacing: 0.05em;
         }
         &__item {
-            font-size: 35px;
+            font-size: 2.43vw;
         }
         &__text {
-            font-size: 35px;
-            line-height: 60px;
-            letter-spacing: 2px;
+            font-size: 2.43vw;
+            line-height: 1.71em;
+            letter-spacing: 0.05em;
         }
         &__mail,
         &__phone {
-            padding-bottom: 1.8em;
+            padding-bottom: 6.15vh;
         }
     }
 }
