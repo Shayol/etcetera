@@ -158,8 +158,8 @@
             width: 38.18vw;
         }
         &__media {
-            width: 25vw; // padding-top: 52vmin; //52vmin
-            padding-top: 36.74vw; // min-height: 60vh;
+            width: 25vw;
+            padding-top: 36.74vw;
         }
         &__iframe {
             // max-height: 50vh;
@@ -193,17 +193,5 @@
             line-height: 1.6em;
             letter-spacing: 0.1em;
         }
-    } // @media(min-width: $big-desktop) {
-    //     padding-left: 12%;
-    //     padding-right: 12%;
-    //     &__media {
-    //         width: 28%;
-    //         padding-top: 50%; //
-    //         // min-height: 60vh;
-    //     }
-    //     &__text {
-    //         flex-basis: 60%;
-    //         flex-shrink: 0;
-    //     }
-    // }
+    }
 }
