@@ -1,6 +1,6 @@
 .work {
-    padding-left: 36px;
-    padding-right: 36px;
+    padding-left: 9.6vw;
+    padding-right: 9.6vw;
     opacity: 0;
     z-index: -1;
     position: static;
@@ -29,7 +29,7 @@
         margin-bottom: 15%;
     }
     &__text {
-        padding-top: 18px;
+        padding-top: 3vh;
     }
     &__media {
         width: 100%;
@@ -63,27 +63,27 @@
     &__header {
         color: #000000;
         font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
-        font-size: 20px;
+        font-size: 5.33vw;
         font-weight: 900;
-        line-height: 30px;
+        line-height: 1.33em;
         text-transform: uppercase;
-        letter-spacing: 1.17px;
+        letter-spacing: 0.0585em;
         text-align: center;
         padding-bottom: .25em;
     }
     &__subheader {
-        font-size: 13px;
+        font-size: 3.47vw;
         font-weight: 700;
-        line-height: 40px;
+        line-height: 3em;
         text-transform: uppercase;
-        letter-spacing: 1.4px;
+        letter-spacing: 0.107em;
         text-align: center;
         font-style: italic;
     }
     &__paragraph {
-        font-size: 13px;
-        line-height: 21px;
-        letter-spacing: 1.18px;
+        font-size: 3.47vw;
+        line-height: 1.4em;
+        letter-spacing: 0.09em;
         +.work__paragraph {
             padding-top: 1em;
         }
@@ -120,11 +120,13 @@
             &\--active {
                 background-color: black;
             }
-            &:hover {
-                background-color: black;
-                transform: scale(1.5);
-                .work__nav-text {
-                    display: block;
+            @media(pointer: fine) {
+                &:hover {
+                    background-color: black;
+                    transform: scale(1.5);
+                    .work__nav-text {
+                        display: block;
+                    }
                 }
             }
         }
@@ -140,6 +142,9 @@
             pointer-events: none;
             display: none;
             white-space: nowrap;
+        }
+        &__slider {
+            scroll-behavior: smooth;
         }
         &__item {
             flex-direction: row;

@@ -5,7 +5,7 @@
     display: flex;
     align-items: stretch;
     &__item {
-        transition: opacity 0.4s ease;
+        transition: opacity 0.4s cubic-bezier(.02, .01, .47, 1);
         position: absolute;
         top: 0;
         left: 0;

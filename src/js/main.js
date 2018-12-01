@@ -44,6 +44,13 @@ window.addEventListener('load', function () {
 
     workItem.forEach((element) => intersectionObserver.observe(element));
 
+    //scroll for work items 
+    // scrollNav.forEach(el => {
+    //     el.addEventListener('click', (e) => {
+    //         if(this.window.scrollTo)
+    //     })
+    // })
+
     //origami merch show hide 
     merch.forEach((el, index) => {
 
