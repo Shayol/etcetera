@@ -107,19 +107,11 @@ window.addEventListener('load', function () {
 
         //lighting
 
-        keyLight = new THREE.DirectionalLight(0xffffff, 0.1);
-        keyLight.position.set(-100, 0, 100);
-
-        fillLight = new THREE.DirectionalLight(0xffffff, 0.25);
-        fillLight.position.set(100, 0, 100);
-
-        backLight = new THREE.DirectionalLight(0xffffff, 1.0);
-        backLight.position.set(100, 0, -100).normalize();
-
+        keyLight = new THREE.PointLight(0xffffff, 10);
+        keyLight.position.set(100, 0, 0);
         ambient.intensity = 0.5;
-        scene.add(keyLight);
-        scene.add(fillLight);
-        scene.add(backLight);
+        // scene.add(keyLight);
+
 
 
         /* Model */
@@ -137,6 +129,8 @@ window.addEventListener('load', function () {
             objLoader.setPath('/assets/');
             objLoader.load('etcetera.obj', function (object) {
 
+                object.position.set(0, 0, 0)
+                object.rotation.set(0., 0, 0)
                 scene.add(object);
 
             });
@@ -147,7 +141,7 @@ window.addEventListener('load', function () {
 
         renderer = new THREE.WebGLRenderer();
         renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+        renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setClearColor(new THREE.Color("hsla(360, 100%, 100%, 1)"));
 
         container.appendChild(renderer.domElement);
