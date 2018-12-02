@@ -78,6 +78,16 @@ module.exports = {
             outputPath: 'img/'
           }
         }
+      },
+      {
+        test: /\.(obj|mtl)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'assets/'
+          }
+        }
       }
     ]
   },

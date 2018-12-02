@@ -35,6 +35,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "intersection-observer": "^0.5.1"
+    "intersection-observer": "^0.5.1",
+    "three": "^0.99.0",
+    "three-obj-mtl-loader": "^1.0.3",
+    "three-orbitcontrols": "^2.96.3"
   }
 }
