@@ -6,8 +6,7 @@ var THREE = require('three');
 import { MTLLoader, OBJLoader } from 'three-obj-mtl-loader';
 import Detector from "./lib/Detector.js";
 var OrbitControls = require('three-orbitcontrols');
-import "../assets/etcetera.mtl";
-import "../assets/etcetera.obj";
+import "../assets/Arial-Black.json";
 
 window.addEventListener('load', function () {
     var navs = document.querySelectorAll(".js-nav");
@@ -75,95 +74,82 @@ window.addEventListener('load', function () {
         Detector.addGetWebGLMessage();
     }
 
-    var container;
+    const loader = new THREE.FontLoader();
 
-    var camera, controls, scene, renderer;
-    var lighting, ambient, keyLight, fillLight, backLight;
+    const scene = new THREE.Scene();
 
-    var windowHalfX = window.innerWidth / 2;
-    var windowHalfY = window.innerHeight / 2;
+    const renderer = new THREE.WebGLRenderer();
+    renderer.shadowMap.enabled = true;
+    renderer.setClearColor(new THREE.Color("hsla(360, 100%, 100%, 1)"));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.querySelector(".home").appendChild(renderer.domElement);
 
-    init();
-    animate();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 0, 500);
+    camera.lookAt(scene.position);
 
-    function init() {
+    loader.load("/assets/Arial-Black.json", function (font) {
 
-        container = document.querySelector(".home");
-
-        /* Camera */
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-        camera.position.set(0, 0, 500);
-        camera.lookAt(scene.position);
-
-        /* Scene */
-
-
-        lighting = false;
-        ambient = new THREE.AmbientLight(0xffffff, 1.0);
-        scene.add(ambient);
-
-
-
-        //lighting
-
-        keyLight = new THREE.PointLight(0xffffff, 10);
-        keyLight.position.set(100, 0, 0);
-        ambient.intensity = 0.5;
-        // scene.add(keyLight);
-
-
-
-        /* Model */
-
-        var mtlLoader = new MTLLoader();
-
-        mtlLoader.setBaseUrl('/assets/');
-        mtlLoader.setPath('/assets/');
-        mtlLoader.load('etcetera.mtl', function (materials) {
-
-            materials.preload();
-
-            var objLoader = new OBJLoader();
-            objLoader.setMaterials(materials);
-            objLoader.setPath('/assets/');
-            objLoader.load('etcetera.obj', function (object) {
-
-                object.position.set(0, 0, 0)
-                object.rotation.set(0., 0, 0)
-                scene.add(object);
-
-            });
-
+        const textGeometry = new THREE.TextGeometry('etcetera', {
+            font: font,
+            size: 60,
+            height: 5,
+            curveSegments: 24,
+            bevelEnabled: true,
+            bevelThickness: 10,
+            bevelSize: 1,
+            bevelSegments: 10
         });
 
-        /* Renderer */
+        const textMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 })
 
-        renderer = new THREE.WebGLRenderer();
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(new THREE.Color("hsla(360, 100%, 100%, 1)"));
+        const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+        textMesh.position.set(-160, 3, 0);
+        textMesh.castShadow = true
+        scene.add(textMesh);
 
-        container.appendChild(renderer.domElement);
+        const light = new THREE.PointLight(0xffffff);
+        light.position.set(-80, 150, -40)
+        light.castShadow = true;
+        scene.add(light);
 
-        /* Controls */
+        light.shadow.mapSize.width = 512;  // default
+        light.shadow.mapSize.height = 512; // default
+        light.shadow.camera.near = 0.5;       // default
+        light.shadow.camera.far = 500      // default
 
-        controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.25;
-        controls.enableZoom = true;
 
-        /* Events */
+        //var helper = new THREE.CameraHelper( light.shadow.camera );
+        //scene.add( helper );
 
-        window.addEventListener('resize', onWindowResize, false);
-        window.addEventListener('keydown', onKeyboardEvent, false);
 
-    }
+        const planeGeometry = new THREE.PlaneGeometry(2000, 2000);
+        planeGeometry.rotateX(- Math.PI / 2);
+
+        const planeMaterial = new THREE.ShadowMaterial();
+        planeMaterial.opacity = 0.2;
+
+        const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+        plane.position.y = -200;
+        plane.receiveShadow = true;
+        scene.add(plane);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        controls.addEventListener("change", () => {
+            renderer.render(scene, camera);
+        });
+
+        renderer.render(scene, camera);
+
+    })
+
+    this.window.addEventListener('resize', onWindowResize, false);
 
     function onWindowResize() {
 
-        windowHalfX = window.innerWidth / 2;
-        windowHalfY = window.innerHeight / 2;
+        // windowHalfX = window.innerWidth / 2;
+        // windowHalfY = window.innerHeight / 2;
 
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -172,47 +158,47 @@ window.addEventListener('load', function () {
 
     }
 
-    function onKeyboardEvent(e) {
+    // function onKeyboardEvent(e) {
 
-        /*if (e.code === 'KeyL') {
-    
-            lighting = !lighting;
-    
-            if (lighting) {
-    
-                ambient.intensity = 0.0;
-                scene.add(keyLight);
-                scene.add(fillLight);
-                scene.add(backLight);
-    
-            } else {
-    
-                ambient.intensity = 1.0;
-                scene.remove(keyLight);
-                scene.remove(fillLight);
-                scene.remove(backLight);
-    
-            }
-    
-        } */
+    //     /*if (e.code === 'KeyL') {
 
-    }
+    //         lighting = !lighting;
 
-    function animate() {
+    //         if (lighting) {
 
-        requestAnimationFrame(animate);
+    //             ambient.intensity = 0.0;
+    //             scene.add(keyLight);
+    //             scene.add(fillLight);
+    //             scene.add(backLight);
 
-        controls.update();
+    //         } else {
 
-        render();
+    //             ambient.intensity = 1.0;
+    //             scene.remove(keyLight);
+    //             scene.remove(fillLight);
+    //             scene.remove(backLight);
 
-    }
+    //         }
 
-    function render() {
+    //     } */
 
-        renderer.render(scene, camera);
+    // }
 
-    }
+    // function animate() {
+
+    //     requestAnimationFrame(animate);
+
+    //     controls.update();
+
+    //     render();
+
+    // }
+
+    // function render() {
+
+    //     renderer.render(scene, camera);
+
+    // }
 
 
 
