@@ -10,6 +10,10 @@
     &__nav {
         display: none;
     }
+    &__slider-wrapper {
+        height: 100vh;
+        overflow: hidden;
+    }
     &__slider {
         height: 100vh;
         overflow-y: scroll;
@@ -144,6 +148,11 @@
         }
         &__slider {
             scroll-behavior: smooth;
+            margin-right: -17px;
+            padding-right: 17px;
+        }
+        &__slider-wrapper {
+            margin-right: 17px;
         }
         &__item {
             flex-direction: row;
