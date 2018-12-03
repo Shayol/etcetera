@@ -1,6 +1,6 @@
 .work {
-    padding-left: 9.6vw;
-    padding-right: 9.6vw;
+    padding-left: calc(9.6vw - 15px);
+    padding-right: calc(9.6vw - 15px);
     opacity: 0;
     z-index: -1;
     position: static;
@@ -13,7 +13,6 @@
     &__slider-wrapper {
         height: 100vh;
         overflow: hidden;
-        padding-bottom: 15%;
     }
     &__slider {
         height: 100vh;
@@ -32,16 +31,22 @@
         align-items: center;
         min-height: 77vh;
         margin-bottom: 15%;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        &:last-child {
+            padding-bottom: 45%;
+        }
     }
     &__text {
         padding-top: 3vh;
     }
     &__media {
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-        padding-top: 100%;
-        flex-shrink: 0; // &\--zorro {
+        width: 70.8vw;
+        height: 70.8vw;
+        position: relative; // overflow: hidden;
+        flex-shrink: 0;
+        box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.1), -3px -1px 15px rgba(0, 0, 0, 0.1); // &\--zorro {
         //     background: url("../img/zorro.png");
         // }
         // &\--tiempo {
@@ -50,6 +55,9 @@
         // &\--visuals {
         //     background: url("../img/installations.png");
         // }
+        &\--cube {
+            box-shadow: none;
+        }
     }
     &__iframe {
         position: absolute;
@@ -67,7 +75,6 @@
         width: 100%;
         height: auto;
         transform: translate(-50%, -50%);
-        box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.5), -4px -5px 10px rgba(0, 0, 0, 0.5);
     }
     &__mobile-img {
         position: absolute;
@@ -85,7 +92,7 @@
         text-transform: uppercase;
         letter-spacing: 0.0585em;
         text-align: center;
-        padding-bottom: .25em;
+        padding-bottom: 3vh;
     }
     &__subheader {
         font-size: 3.47vw;
@@ -108,8 +115,8 @@
         font-weight: 700;
     }
     @media(min-width: $desktop) {
-        padding-left: 8.8vw;
-        padding-right: 12.65vw;
+        padding-left: 9.8vw;
+        padding-right: 11.65vw;
         padding-top: 0;
         &__nav {
             position: absolute;
@@ -168,6 +175,9 @@
             margin-right: 17px;
         }
         &__item {
+            padding-top: 25px;
+            padding-left: 25px;
+            padding-right: 25px;
             flex-direction: row;
             justify-content: space-between;
             &:nth-child(even) {
@@ -180,9 +190,10 @@
             width: 38.18vw;
         }
         &__media {
-            width: 25vw;
-            padding-top: 36.74vw;
+            width: 20vw;
+            height: 29.41vw;
             background: none;
+            box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.1), -3px -1px 25px rgba(0, 0, 0, 0.1);
             &\--installations {
                 background-repeat: no-repeat;
                 background-size: cover;
