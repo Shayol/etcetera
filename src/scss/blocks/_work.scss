@@ -39,13 +39,15 @@
         position: relative;
         overflow: hidden;
         padding-top: 100%;
-        flex-shrink: 0;
-        &\--background {
-            background-image: url('../img/onda-vega.gif');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: 50%;
-        }
+        flex-shrink: 0; // &\--zorro {
+        //     background: url("../img/zorro.png");
+        // }
+        // &\--tiempo {
+        //     background: url("../img/tiempo.png");
+        // }
+        // &\--visuals {
+        //     background: url("../img/installations.png");
+        // }
     }
     &__iframe {
         position: absolute;
@@ -54,6 +56,8 @@
         width: 100%;
         height: 100%;
         border: 0;
+        display: none;
+        box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.5), -4px -5px 10px rgba(0, 0, 0, 0.5);
     }
     &__img {
         position: absolute;
@@ -62,6 +66,15 @@
         width: 100%;
         height: auto;
         transform: translate(-50%, -50%);
+        box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.5), -4px -5px 10px rgba(0, 0, 0, 0.5);
+    }
+    &__mobile-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.5), -4px -5px 10px rgba(0, 0, 0, 0.5);
     }
     &__header {
         color: #000000;
@@ -106,14 +119,14 @@
             top: 50%;
             transform: translateY(-50%);
             position: fixed;
-            width: 1.5vw;
+            width: 1.05vw;
             margin-right: -0.5vw;
         }
         &__nav-link {
-            width: 1vw;
-            min-width: 15px;
-            min-height: 15px;
-            height: 1vw;
+            width: 0.7vw;
+            min-width: 10px;
+            min-height: 10px;
+            height: 0.7vw;
             border-radius: 50%;
             background-color: rgba(0, 0, 0, 0.5);
             position: relative;
@@ -169,14 +182,24 @@
         &__media {
             width: 25vw;
             padding-top: 36.74vw;
+            background: none;
+            &\--installations {
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: 50%;
+                background-image: url('../img/onda-vega.gif');
+            }
         }
         &__iframe {
-            // max-height: 50vh;
+            display: block;
         }
         &__img {
             transform: translate(-50%, -50%);
             top: 50%;
             left: 50%;
+        }
+        &__mobile-img {
+            display: none;
         }
         &__header {
             font-size: 2.22vw;
