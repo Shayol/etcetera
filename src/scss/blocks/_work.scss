@@ -46,15 +46,19 @@
         height: 70.8vw;
         position: relative; // overflow: hidden;
         flex-shrink: 0;
-        box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.1), -3px -1px 15px rgba(0, 0, 0, 0.1); // &\--zorro {
-        //     background: url("../img/zorro.png");
-        // }
-        // &\--tiempo {
-        //     background: url("../img/tiempo.png");
-        // }
-        // &\--visuals {
-        //     background: url("../img/installations.png");
-        // }
+        box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.2), -3px -1px 15px rgba(0, 0, 0, 0.2);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%;
+        &\--zorro {
+            background-image: url("../img/zorro.png");
+        }
+        &\--tiempo {
+            background-image: url("../img/tiempo.png");
+        }
+        &\--installations {
+            background-image: url("../img/installations.png");
+        }
         &\--cube {
             box-shadow: none;
         }
@@ -199,6 +203,9 @@
                 background-size: cover;
                 background-position: 50%;
                 background-image: url('../img/onda-vega.gif');
+            }
+            &\--cube {
+                box-shadow: none;
             }
         }
         &__iframe {
