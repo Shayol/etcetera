@@ -39,14 +39,14 @@
         }
     }
     &__text {
-        padding-top: 3vh;
+        padding-top: 3.5vh;
     }
     &__media {
         width: 70.8vw;
         height: 70.8vw;
         position: relative; // overflow: hidden;
         flex-shrink: 0;
-        box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.2), -3px -1px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.3), -3px -1px 15px rgba(0, 0, 0, 0.3);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50%;
@@ -109,7 +109,7 @@
     }
     &__paragraph {
         font-size: 3.47vw;
-        line-height: 1.4em;
+        line-height: 1.6em;
         letter-spacing: 0.09em;
         +.work__paragraph {
             padding-top: 1em;
@@ -197,7 +197,7 @@
             width: 20vw;
             height: 29.41vw;
             background: none;
-            box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.1), -3px -1px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.4), -3px -1px 25px rgba(0, 0, 0, 0.4);
             &\--installations {
                 background-repeat: no-repeat;
                 background-size: cover;
