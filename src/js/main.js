@@ -3,7 +3,6 @@ require('intersection-observer');
 import "../scss/main.scss";
 
 var THREE = require('three');
-import { MTLLoader, OBJLoader } from 'three-obj-mtl-loader';
 import Detector from "./lib/Detector.js";
 var OrbitControls = require('three-orbitcontrols');
 import "../assets/Arial-Black.json";
@@ -75,6 +74,10 @@ window.addEventListener('load', function () {
     }
 
     const loader = new THREE.FontLoader();
+    var container = document.querySelector(".home");
+    var windowHalfX = container.clientWidth / 2;
+    var windowHalfY = container.clientHeight / 2;
+
 
     const scene = new THREE.Scene();
 
@@ -82,11 +85,11 @@ window.addEventListener('load', function () {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.shadowMap.enabled = true;
     renderer.setClearColor(new THREE.Color("hsla(360, 100%, 100%, 1)"));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.querySelector(".home").appendChild(renderer.domElement);
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
 
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 0, 500);
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.set(0, 0, 300);
     camera.lookAt(scene.position);
 
     loader.load("/assets/Arial-Black.json", function (font) {
@@ -150,14 +153,15 @@ window.addEventListener('load', function () {
 
     })
 
-    this.window.addEventListener('resize', onWindowResize, false);
+    window.addEventListener('resize', onWindowResize, false);
 
     function onWindowResize() {
 
-        windowHalfX = window.innerWidth / 2;
-        camera.aspect = window.innerWidth / window.innerHeight;
+        windowHalfX = container.clientWidth / 2;
+        windowHalfY = container.clientHeight / 2;
+        camera.aspect = container.clientWidth / container.clientHeight;
         camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(container.clientWidth, container.clientHeight);
 
     }
 

@@ -16,6 +16,8 @@ body {
     max-height: 100vh;
     overflow: hidden;
     display: flex;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 $contact-desktop: 480px;

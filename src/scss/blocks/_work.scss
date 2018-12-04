@@ -80,13 +80,6 @@
         height: auto;
         transform: translate(-50%, -50%);
     }
-    &__mobile-img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
     &__header {
         color: #000000;
         font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
@@ -159,16 +152,18 @@
         }
         &__nav-text {
             color: black;
-            font-size: 0.8vw;
+            font-size: 0.6vw;
             text-transform: uppercase;
             position: absolute;
-            right: 120%;
+            right: 130%;
             top: 50%;
             transform: translateY(-50%);
             text-decoration: none;
             pointer-events: none;
             display: none;
             white-space: nowrap;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         &__slider {
             scroll-behavior: smooth;
