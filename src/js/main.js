@@ -109,13 +109,13 @@ window.addEventListener('load', function () {
         const textMaterial = new THREE.MeshPhongMaterial({ color: 0x000000, flatShading: true });
 
         const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        textMesh.position.set(-200, 35, 0);
+        textMesh.position.set(-200, 10, 0);
         textMesh.receiveShadow = true;
         textMesh.castShadow = true;
         scene.add(textMesh);
 
         var light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(-40, 274, -82);
+        light.position.set(-50, 174, -92);
         light.castShadow = true;
         // light.target = textMesh;
         scene.add(light);
@@ -146,7 +146,7 @@ window.addEventListener('load', function () {
         planeMaterial.opacity = 0.7;
 
         const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-        plane.position.y = 0;
+        plane.position.y = -10;
         plane.receiveShadow = true;
         scene.add(plane);
 
