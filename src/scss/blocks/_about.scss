@@ -6,7 +6,8 @@
         font-size: 4.8vw;
         padding-left: 1.5em;
         padding-right: 1.5em;
-        max-height: 100%;
+        padding-bottom: 3.7vh;
+        max-height: 90%;
         overflow: scroll;
         -ms-overflow-style: none; // IE 10+
         overflow: -moz-scrollbars-none; // Firefox
@@ -34,6 +35,7 @@
             padding-left: 16%;
             padding-right: 16%;
             max-height: 76vh;
+            padding-bottom: 0;
         }
         &__paragraph {
             font-size: 2.22vw;

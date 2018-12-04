@@ -80,7 +80,8 @@ module.exports = {
         }
       },
       {
-        test: /\.(obj|mtl)$/,
+        test: /(Arial-Black\.json)$/,
+        type: 'javascript/auto',
         use: {
           loader: "file-loader",
           options: {
