@@ -143,7 +143,7 @@ window.addEventListener('load', function () {
         planeGeometry.rotateX(- Math.PI / 2);
 
         const planeMaterial = new THREE.ShadowMaterial();
-        planeMaterial.opacity = 0.5;
+        planeMaterial.opacity = 0.7;
 
         const plane = new THREE.Mesh(planeGeometry, planeMaterial);
         plane.position.y = 0;
