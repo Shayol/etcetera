@@ -79,12 +79,21 @@ window.addEventListener('load', function () {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.setClearColor(new THREE.Color("hsla(360, 100%, 100%, 1)"));
+    renderer.setClearColor(new THREE.Color(), 1);
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 0, 500);
+    if (container.clientWidth < 600) {
+        camera.position.set(0, 0, 900);
+    }
+    else if (container.clientWidth < 750) {
+        camera.position.set(0, 0, 800);
+    }
+    else {
+        camera.position.set(0, 0, 500);
+    }
+
     camera.lookAt(scene.position);
 
     loader.load("/assets/Arial-Black.json", function (font) {
@@ -123,8 +132,8 @@ window.addEventListener('load', function () {
         dlight.position.set(10, 194, -42);
         scene.add(dlight);
 
-        light.shadow.mapSize.width = 2048;
-        light.shadow.mapSize.height = 2048;
+        light.shadow.mapSize.width = 1024;
+        light.shadow.mapSize.height = 1024;
         light.shadow.camera.near = 0.5;
         light.shadow.camera.far = 370;
         light.shadow.camera.left = -250;
@@ -135,8 +144,8 @@ window.addEventListener('load', function () {
         light.bias = 0.0001;
 
 
-        var helper = new THREE.CameraHelper(light.shadow.camera);
-        scene.add(helper);
+        // var helper = new THREE.CameraHelper(light.shadow.camera);
+        // scene.add(helper);
 
 
         const planeGeometry = new THREE.PlaneGeometry(500, 500);
@@ -164,61 +173,35 @@ window.addEventListener('load', function () {
 
         renderer.render(scene, camera);
 
-    })
+    });
+
 
     window.addEventListener('resize', onWindowResize, false);
 
-    function onWindowResize() {
+    function onWindowResize(e) {
 
         windowHalfX = container.clientWidth / 2;
         windowHalfY = container.clientHeight / 2;
         camera.aspect = container.clientWidth / container.clientHeight;
+
+        if (container.clientWidth < 600) {
+            camera.position.set(0, 0, 900);
+        }
+        else if (container.clientWidth < 800) {
+            camera.position.set(0, 0, 750);
+        }
+        else {
+            camera.position.set(0, 0, 500);
+        }
+
+
         camera.updateProjectionMatrix();
+
+        camera.lookAt(scene.position);
         renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.render(scene, camera);
 
     }
-
-    // function onKeyboardEvent(e) {
-
-    //     /*if (e.code === 'KeyL') {
-
-    //         lighting = !lighting;
-
-    //         if (lighting) {
-
-    //             ambient.intensity = 0.0;
-    //             scene.add(keyLight);
-    //             scene.add(fillLight);
-    //             scene.add(backLight);
-
-    //         } else {
-
-    //             ambient.intensity = 1.0;
-    //             scene.remove(keyLight);
-    //             scene.remove(fillLight);
-    //             scene.remove(backLight);
-
-    //         }
-
-    //     } */
-
-    // }
-
-    // function animate() {
-
-    //     requestAnimationFrame(animate);
-
-    //     controls.update();
-
-    //     render();
-
-    // }
-
-    // function render() {
-
-    //     renderer.render(scene, camera);
-
-    // }
 
 
 
