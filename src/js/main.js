@@ -49,12 +49,6 @@ window.addEventListener('load', function () {
 
     workItem.forEach((element) => intersectionObserver.observe(element));
 
-    //scroll for work items 
-    // scrollNav.forEach(el => {
-    //     el.addEventListener('click', (e) => {
-    //         if(this.window.scrollTo)
-    //     })
-    // })
 
     //origami merch show hide 
     merch.forEach((el, index) => {
@@ -90,7 +84,7 @@ window.addEventListener('load', function () {
     container.appendChild(renderer.domElement);
 
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 0, 400);
+    camera.position.set(0, 0, 500);
     camera.lookAt(scene.position);
 
     loader.load("/assets/Arial-Black.json", function (font) {
@@ -106,10 +100,10 @@ window.addEventListener('load', function () {
             bevelSegments: 10
         });
 
-        const textMaterial = new THREE.MeshPhongMaterial({ color: 0x5D5E5E, flatShading: true });
+        const textMaterial = new THREE.MeshLambertMaterial({ color: 0x5D5E5E, flatShading: true });
 
         const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        textMesh.position.set(-200, 50, 0);
+        textMesh.position.set(-200, -15, 0);
         textMesh.receiveShadow = true;
         textMesh.castShadow = true;
         scene.add(textMesh);
@@ -121,34 +115,24 @@ window.addEventListener('load', function () {
         light.castShadow = true;
         scene.add(light);
         scene.add(light.target);
-        light.target.position.set(60, 65, 0);
+        light.target.position.set(60, 20, 0);
 
         //light illuminate from above
 
         var dlight = new THREE.DirectionalLight(0xffffff, 0.3);
-        dlight.position.set(0, 164, -42);
+        dlight.position.set(10, 194, -42);
         scene.add(dlight);
 
         light.shadow.mapSize.width = 2048;
         light.shadow.mapSize.height = 2048;
         light.shadow.camera.near = 0.5;
         light.shadow.camera.far = 370;
-        light.shadow.camera.left = -220;
-        light.shadow.camera.right = 220;
-        light.shadow.camera.bottom = -200;
-        light.shadow.camera.top = 200;
+        light.shadow.camera.left = -250;
+        light.shadow.camera.right = 250;
+        light.shadow.camera.bottom = -250;
+        light.shadow.camera.top = 250;
         light.radius = 0.0039;
         light.bias = 0.0001;
-
-        // var pointLight = new THREE.PointLight(0xffffff, 1.5);
-        // pointLight.position.set(-40, 150, -40);
-        // pointLight.castShadow = true;
-        // scene.add(pointLight);
-
-        // ambient light
-
-        // var ambientLight = new THREE.AmbientLight(0x404040); // soft white light
-        // scene.add(ambientLight);
 
 
         var helper = new THREE.CameraHelper(light.shadow.camera);
@@ -159,16 +143,22 @@ window.addEventListener('load', function () {
         planeGeometry.rotateX(- Math.PI / 2);
 
         const planeMaterial = new THREE.ShadowMaterial();
-        planeMaterial.opacity = 0.3;
+        planeMaterial.opacity = 0;
 
         const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-        plane.position.y = 0;
+        plane.position.y = -55;
         plane.receiveShadow = true;
         scene.add(plane);
 
         const controls = new OrbitControls(camera, renderer.domElement);
 
         controls.addEventListener("change", () => {
+            if (camera.position.x == 0 && camera.position.y == 0) {
+                planeMaterial.opacity = 0;
+            }
+            else {
+                planeMaterial.opacity = 0.3;
+            }
             renderer.render(scene, camera);
         });
 

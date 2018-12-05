@@ -21,5 +21,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+canvas {
+    display: block;
+    border: none;
+    background-color: white;
+}
+
 $contact-desktop: 480px;
 $desktop: 600px;
