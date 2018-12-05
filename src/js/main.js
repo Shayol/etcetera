@@ -109,27 +109,36 @@ window.addEventListener('load', function () {
         const textMaterial = new THREE.MeshPhongMaterial({ color: 0x5D5E5E, flatShading: true });
 
         const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        textMesh.position.set(-200, 10, 0);
+        textMesh.position.set(-200, 50, 0);
         textMesh.receiveShadow = true;
         textMesh.castShadow = true;
         scene.add(textMesh);
 
-        // light
+        // light to make shadow
 
-        var light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(-50, 174, -92);
+        var light = new THREE.DirectionalLight(0xffffff, 0.8);
+        light.position.set(-30, 194, -35);
         light.castShadow = true;
-        // light.target = textMesh;
         scene.add(light);
+        scene.add(light.target);
+        light.target.position.set(60, 65, 0);
 
-        light.shadow.mapSize.width = 1024;
-        light.shadow.mapSize.height = 1024;
+        //light illuminate from above
+
+        var dlight = new THREE.DirectionalLight(0xffffff, 0.3);
+        dlight.position.set(0, 164, -42);
+        scene.add(dlight);
+
+        light.shadow.mapSize.width = 2048;
+        light.shadow.mapSize.height = 2048;
         light.shadow.camera.near = 0.5;
-        light.shadow.camera.far = 400;
-        light.shadow.camera.left = -240;
-        light.shadow.camera.right = 240;
-        light.shadow.camera.bottom = -240;
-        light.shadow.camera.top = 240;
+        light.shadow.camera.far = 370;
+        light.shadow.camera.left = -220;
+        light.shadow.camera.right = 220;
+        light.shadow.camera.bottom = -200;
+        light.shadow.camera.top = 200;
+        light.radius = 0.0039;
+        light.bias = 0.0001;
 
         // var pointLight = new THREE.PointLight(0xffffff, 1.5);
         // pointLight.position.set(-40, 150, -40);
@@ -146,14 +155,14 @@ window.addEventListener('load', function () {
         scene.add(helper);
 
 
-        const planeGeometry = new THREE.PlaneGeometry(4000, 4000);
+        const planeGeometry = new THREE.PlaneGeometry(500, 500);
         planeGeometry.rotateX(- Math.PI / 2);
 
         const planeMaterial = new THREE.ShadowMaterial();
-        planeMaterial.opacity = 0.7;
+        planeMaterial.opacity = 0.3;
 
         const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-        plane.position.y = -10;
+        plane.position.y = 0;
         plane.receiveShadow = true;
         scene.add(plane);
 
