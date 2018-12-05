@@ -80,8 +80,7 @@ module.exports = {
         }
       },
       {
-        test: /(Arial-Black\.json)$/,
-        type: 'javascript/auto',
+        test: /\.(obj)$/,
         use: {
           loader: "file-loader",
           options: {
@@ -90,6 +89,18 @@ module.exports = {
           }
         }
       }
+
+      // {
+      //   test: /(Arial-Black\.json)$/,
+      //   type: 'javascript/auto',
+      //   use: {
+      //     loader: "file-loader",
+      //     options: {
+      //       name: '[name].[ext]',
+      //       outputPath: 'assets/'
+      //     }
+      //   }
+      // }
     ]
   },
   plugins: [

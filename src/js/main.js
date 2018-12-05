@@ -4,8 +4,11 @@ import "../scss/main.scss";
 
 var THREE = require('three');
 import Detector from "./lib/Detector.js";
+import { OBJLoader } from 'three-obj-mtl-loader';
 var OrbitControls = require('three-orbitcontrols');
-import "../assets/Arial-Black.json";
+import "../assets/etcetera.obj";
+
+
 
 window.addEventListener('load', function () {
     var navs = document.querySelectorAll(".js-nav");
@@ -93,89 +96,89 @@ window.addEventListener('load', function () {
         camera.position.set(0, 0, 800);
     }
     else {
-        camera.position.set(0, 0, 500);
+        camera.position.set(0, 0, 400);
     }
 
     camera.lookAt(scene.position);
 
-    loader.load("/assets/Arial-Black.json", function (font) {
-
-        const textGeometry = new THREE.TextGeometry('etcetera', {
-            font: font,
-            size: 60,
-            height: 5,
-            curveSegments: 24,
-            bevelEnabled: true,
-            bevelThickness: 10,
-            bevelSize: 1,
-            bevelSegments: 10
-        });
-
-        const textMaterial = new THREE.MeshLambertMaterial({ color: 0x5D5E5E, flatShading: true });
-
-        const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        textMesh.position.set(-200, -15, 0);
-        textMesh.receiveShadow = true;
-        textMesh.castShadow = true;
-        scene.add(textMesh);
-
-        // light to make shadow
-
-        var light = new THREE.DirectionalLight(0xffffff, 0.8);
-        light.position.set(-30, 194, -35);
-        light.castShadow = true;
-        scene.add(light);
-        scene.add(light.target);
-        light.target.position.set(60, 20, 0);
-
-        //light illuminate from above
-
-        var dlight = new THREE.DirectionalLight(0xffffff, 0.3);
-        dlight.position.set(10, 194, -42);
-        scene.add(dlight);
-
-        light.shadow.mapSize.width = 1024;
-        light.shadow.mapSize.height = 1024;
-        light.shadow.camera.near = 0.5;
-        light.shadow.camera.far = 370;
-        light.shadow.camera.left = -250;
-        light.shadow.camera.right = 250;
-        light.shadow.camera.bottom = -250;
-        light.shadow.camera.top = 250;
-        light.radius = 0.0039;
-        light.bias = 0.0001;
 
 
-        // var helper = new THREE.CameraHelper(light.shadow.camera);
-        // scene.add(helper);
+    const objLoader = new THREE.OBJLoader();
+    objLoader.setPath('/assets/');
 
-
-        const planeGeometry = new THREE.PlaneGeometry(500, 500);
-        planeGeometry.rotateX(- Math.PI / 2);
-
-        const planeMaterial = new THREE.ShadowMaterial();
-        planeMaterial.opacity = 0;
-
-        const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-        plane.position.y = -55;
-        plane.receiveShadow = true;
-        scene.add(plane);
-
-        const controls = new OrbitControls(camera, renderer.domElement);
-
-        controls.addEventListener("change", () => {
-            if (camera.position.x == 0 && camera.position.y == 0) {
-                planeMaterial.opacity = 0;
+    const material = new THREE.MeshLambertMaterial({ color: 0x5D5E5E, flatShading: true });
+    objLoader.setPath('assets/');
+    objLoader.load('etcetera.obj', function (object) {
+        object.traverse(function (child) {
+            if (child instanceof THREE.Mesh) {
+                child.material = material;
+                child.castShadow = true;
+                child.receiveShadow = true;
             }
-            else {
-                planeMaterial.opacity = 0.3;
-            }
-            renderer.render(scene, camera);
         });
-
+        object.position.set(0, 0, 0);
+        object.castShadow = true;
+        object.receiveShadow = true;
+        scene.add(object);
         renderer.render(scene, camera);
 
     });
+
+    // light to make shadow
+
+    var light = new THREE.DirectionalLight(0xffffff, 0.8);
+    light.position.set(-30, 194, -45);
+    light.castShadow = true;
+    scene.add(light);
+    scene.add(light.target);
+    light.target.position.set(60, 20, 0);
+
+    //light illuminate from above
+
+    var dlight = new THREE.DirectionalLight(0xffffff, 0.3);
+    dlight.position.set(0, 194, 0);
+    scene.add(dlight);
+
+    light.shadow.mapSize.width = 1024;
+    light.shadow.mapSize.height = 1024;
+    light.shadow.camera.near = 0.5;
+    light.shadow.camera.far = 370;
+    light.shadow.camera.left = -250;
+    light.shadow.camera.right = 250;
+    light.shadow.camera.bottom = -250;
+    light.shadow.camera.top = 250;
+    light.radius = 0.0039;
+    light.bias = 0.0001;
+
+
+    var helper = new THREE.CameraHelper(light.shadow.camera);
+    scene.add(helper);
+
+
+    const planeGeometry = new THREE.PlaneGeometry(500, 500);
+    planeGeometry.rotateX(- Math.PI / 2);
+
+    const planeMaterial = new THREE.ShadowMaterial();
+    planeMaterial.opacity = 0;
+
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.position.y = -35;
+    plane.receiveShadow = true;
+    scene.add(plane);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+
+    controls.addEventListener("change", () => {
+        if (camera.position.x == 0 && camera.position.y == 0) {
+            planeMaterial.opacity = 0;
+        }
+        else {
+            planeMaterial.opacity = 0.4;
+        }
+        renderer.render(scene, camera);
+    });
+
+    renderer.render(scene, camera);
 
 
     window.addEventListener('resize', onWindowResize, false);
@@ -193,7 +196,7 @@ window.addEventListener('load', function () {
             camera.position.set(0, 0, 750);
         }
         else {
-            camera.position.set(0, 0, 500);
+            camera.position.set(0, 0, 400);
         }
 
 
