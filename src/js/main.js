@@ -67,6 +67,8 @@ window.addEventListener('load', function () {
         Detector.addGetWebGLMessage();
     }
 
+
+    THREE.Cache.enabled = true;
     const loader = new THREE.FontLoader();
     var container = document.querySelector(".home");
     var windowHalfX = container.clientWidth / 2;
