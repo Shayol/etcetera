@@ -39,9 +39,6 @@
         padding-top: 15px;
         padding-left: 15px;
         padding-right: 15px;
-        &:first-child {
-            // padding-top: 6vh;
-        }
         &:last-child {
             padding-bottom: 45%;
         }
@@ -99,6 +96,11 @@
         text-align: center;
         padding-bottom: 3vh;
         text-decoration: none;
+        display: block;
+        transition: color 0.3s ease-out;
+        &:hover {
+            color: #747474;
+        }
     }
     &__subheader {
         font-size: 3.47vw;
@@ -188,9 +190,6 @@
             padding-right: 25px;
             flex-direction: row;
             justify-content: space-between;
-            &:first-child {
-                padding-top: 25px;
-            }
             &:nth-child(even) {
                 .work__media {
                     order: 1;
@@ -205,12 +204,6 @@
             height: 29.41vw;
             background: none;
             box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.4), -3px -1px 25px rgba(0, 0, 0, 0.4);
-            &\--installations {
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: 50%;
-                background-image: url('../img/onda-vega.gif');
-            }
             &\--cube {
                 box-shadow: none;
             }
@@ -219,9 +212,7 @@
             display: block;
         }
         &__img {
-            transform: translate(-50%, -50%);
-            top: 50%;
-            left: 50%;
+            display: none;
         }
         &__mobile-img {
             display: none;

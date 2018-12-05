@@ -10,6 +10,9 @@
     filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
     cursor: pointer;
+    @media(min-width: $desktop) {
+        display: none;
+    }
 }
 
 @media (pointer: fine) and (hover: hover) {

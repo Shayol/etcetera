@@ -26,14 +26,15 @@
     }
     &__label {
         color: #000000;
-        font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+        font-family: Arial, Gadget, sans-serif;
         font-size: 15px;
         display: block;
-        font-weight: 900;
+        font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 2.61px;
         text-transform: uppercase;
         cursor: pointer;
+        transition: color 0.3s ease-out;
         &:hover {
             color: #747474;
         }

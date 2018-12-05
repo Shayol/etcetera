@@ -28,7 +28,11 @@ window.addEventListener('load', function () {
                 if (prev != current) {
                     prev.classList.toggle("active");
                     current.classList.toggle("active");
+                    if (el.dataset.id == "home") {
+                        onWindowResize();
+                    }
                 }
+
             }
         });
     });
@@ -133,12 +137,6 @@ window.addEventListener('load', function () {
     scene.add(light.target);
     light.target.position.set(60, 20, 0);
 
-    //light illuminate from above
-
-    var dlight = new THREE.DirectionalLight(0xffffff, 0.3);
-    dlight.position.set(0, 194, 0);
-    scene.add(dlight);
-
     light.shadow.mapSize.width = 1024;
     light.shadow.mapSize.height = 1024;
     light.shadow.camera.near = 0.5;
@@ -149,6 +147,12 @@ window.addEventListener('load', function () {
     light.shadow.camera.top = 250;
     light.radius = 0.0039;
     light.bias = 0.0001;
+
+    //light illuminate from above
+
+    var dlight = new THREE.DirectionalLight(0xffffff, 0.3);
+    dlight.position.set(0, 194, 0);
+    scene.add(dlight);
 
 
     var helper = new THREE.CameraHelper(light.shadow.camera);
@@ -204,6 +208,13 @@ window.addEventListener('load', function () {
 
         camera.lookAt(scene.position);
         renderer.setSize(container.clientWidth, container.clientHeight);
+
+        if (camera.position.x == 0 && camera.position.y == 0) {
+            planeMaterial.opacity = 0;
+        }
+        else {
+            planeMaterial.opacity = 0.4;
+        }
         renderer.render(scene, camera);
 
     }

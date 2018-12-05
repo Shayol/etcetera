@@ -24,6 +24,10 @@
         line-height: 1.84em;
         letter-spacing: 0.052em;
         cursor: pointer;
+        transition: color 0.3s ease-out;
+        &:hover {
+            color: #747474;
+        }
     }
     &__mail,
     &__phone {
