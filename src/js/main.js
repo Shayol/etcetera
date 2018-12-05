@@ -90,7 +90,7 @@ window.addEventListener('load', function () {
     container.appendChild(renderer.domElement);
 
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 0, 300);
+    camera.position.set(0, 0, 400);
     camera.lookAt(scene.position);
 
     loader.load("/assets/Arial-Black.json", function (font) {
@@ -106,7 +106,7 @@ window.addEventListener('load', function () {
             bevelSegments: 10
         });
 
-        const textMaterial = new THREE.MeshPhongMaterial({ color: 0x000000, flatShading: true });
+        const textMaterial = new THREE.MeshPhongMaterial({ color: 0x5D5E5E, flatShading: true });
 
         const textMesh = new THREE.Mesh(textGeometry, textMaterial);
         textMesh.position.set(-200, 10, 0);
@@ -114,25 +114,32 @@ window.addEventListener('load', function () {
         textMesh.castShadow = true;
         scene.add(textMesh);
 
+        // light
+
         var light = new THREE.DirectionalLight(0xffffff, 1);
         light.position.set(-50, 174, -92);
         light.castShadow = true;
         // light.target = textMesh;
         scene.add(light);
 
-        light.shadow.mapSize.width = 1024;  // default
-        light.shadow.mapSize.height = 1024; // default
-        light.shadow.camera.near = 0.5;       // default
+        light.shadow.mapSize.width = 1024;
+        light.shadow.mapSize.height = 1024;
+        light.shadow.camera.near = 0.5;
         light.shadow.camera.far = 400;
         light.shadow.camera.left = -240;
         light.shadow.camera.right = 240;
         light.shadow.camera.bottom = -240;
-        light.shadow.camera.top = 240;          // default
+        light.shadow.camera.top = 240;
 
         // var pointLight = new THREE.PointLight(0xffffff, 1.5);
         // pointLight.position.set(-40, 150, -40);
         // pointLight.castShadow = true;
         // scene.add(pointLight);
+
+        // ambient light
+
+        // var ambientLight = new THREE.AmbientLight(0x404040); // soft white light
+        // scene.add(ambientLight);
 
 
         var helper = new THREE.CameraHelper(light.shadow.camera);
