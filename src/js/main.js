@@ -77,9 +77,6 @@ window.addEventListener('load', function () {
 
     THREE.Cache.enabled = true;
     var container = document.querySelector(".home");
-    var windowHalfX = container.clientWidth / 2;
-    var windowHalfY = container.clientHeight / 2;
-
 
     const scene = new THREE.Scene();
 
@@ -93,18 +90,27 @@ window.addEventListener('load', function () {
 
     // camera
 
-    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    if (container.clientWidth < 600) {
-        camera.position.set(0, 0, 900);
-    }
-    else if (container.clientWidth < 750) {
-        camera.position.set(0, 0, 800);
-    }
-    else {
-        camera.position.set(0, 0, 400);
-    }
+    var viewSize = 250;
+    var originalAspect;
+    var aspectRatio = container.clientWidth  / container.clientHeight;
+    originalAspect = container.clientWidth  / container.clientHeight;
+    const camera = new THREE.OrthographicCamera( - aspectRatio * viewSize / 2, aspectRatio * viewSize / 2, viewSize / 2, - viewSize / 2, 1, 1000 );
+    // if (container.clientWidth < 600) {
+    //     camera.position.set(0, 0, 900);
+    // }
+    // else if (container.clientWidth < 750) {
+    //     camera.position.set(0, 0, 800);
+    // }
+    // else {
+    //     camera.position.set(0, 0, 400);
+    // }
+
+    camera.position.set(0, 0, 400);
+    // camera.zoom = 2.5;
+    camera.updateProjectionMatrix();
 
     camera.lookAt(scene.position);
+
 
     // load object and add material
 
@@ -134,7 +140,7 @@ window.addEventListener('load', function () {
         object.position.set(0, 0, 0);
         object.castShadow = true;
         object.receiveShadow = true;
-        object.rotation.y -= (Math.PI / 4);
+        object.rotation.y -= (Math.PI / 45);
         scene.add(object);
         renderer.render(scene, camera);
         return object;
@@ -178,8 +184,8 @@ window.addEventListener('load', function () {
 
     //light illuminate from above
 
-    var dlight = new THREE.DirectionalLight(0xffffff, 0.5);
-    dlight.position.set(0, 194, 0);
+    var dlight = new THREE.DirectionalLight(0xffffff, 0.7);
+    dlight.position.set(20, 194, 0);
     scene.add(dlight);
 
 
@@ -191,7 +197,7 @@ window.addEventListener('load', function () {
     planeGeometry.rotateX(- Math.PI / 2);
 
     const planeMaterial = new THREE.ShadowMaterial();
-    planeMaterial.opacity = 0;
+    planeMaterial.opacity = 0.4;
 
     const plane = new THREE.Mesh(planeGeometry, planeMaterial);
     plane.position.y = -35;
@@ -199,51 +205,45 @@ window.addEventListener('load', function () {
     scene.add(plane);
 
     const controls = new OrbitControls(camera, renderer.domElement);
+    controls.minZoom = 1;
+    controls.maxZoom = 15;
 
     controls.addEventListener("change", () => {
-        if (camera.position.x == 0 && camera.position.y == 0) {
-            planeMaterial.opacity = 0;
-        }
-        else {
-            planeMaterial.opacity = 0.4;
-        }
         renderer.render(scene, camera);
     });
 
-    // renderer.render(scene, camera);
+    renderer.render(scene, camera);
 
 
     window.addEventListener('resize', onWindowResize, false);
 
     function onWindowResize(e) {
 
-        windowHalfX = container.clientWidth / 2;
-        windowHalfY = container.clientHeight / 2;
-        camera.aspect = container.clientWidth / container.clientHeight;
+        let aspect = container.clientWidth / container.clientHeight;
+        // 0.5 * frustumSize * aspect
 
-        if (container.clientWidth < 600) {
-            camera.position.set(0, 0, 900);
-        }
-        else if (container.clientWidth < 800) {
-            camera.position.set(0, 0, 750);
-        }
-        else {
-            camera.position.set(0, 0, 400);
-        }
+        // if (container.clientWidth < 600) {
+        //     camera.position.set(0, 0, 900);
+        // }
+        // else if (container.clientWidth < 800) {
+        //     camera.position.set(0, 0, 750);
+        // }
+        // else {
+        //     camera.position.set(0, 0, 400);
+        // }
+
+        let change = originalAspect / aspect;
+        let newSize = viewSize * change;
+        camera.left = -aspect * newSize / 2;
+        camera.right = aspect * newSize  / 2;
+        camera.top = newSize / 2;
+        camera.bottom = -newSize / 2;
 
 
         camera.updateProjectionMatrix();
         controls.update();
-
-        camera.lookAt(scene.position);
         renderer.setSize(container.clientWidth, container.clientHeight);
 
-        if (camera.position.x == 0 && camera.position.y == 0) {
-            planeMaterial.opacity = 0;
-        }
-        else {
-            planeMaterial.opacity = 0.4;
-        }
         renderer.render(scene, camera);
 
     }
