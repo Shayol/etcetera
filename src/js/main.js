@@ -95,18 +95,8 @@ window.addEventListener('load', function () {
     var aspectRatio = container.clientWidth  / container.clientHeight;
     originalAspect = container.clientWidth  / container.clientHeight;
     const camera = new THREE.OrthographicCamera( - aspectRatio * viewSize / 2, aspectRatio * viewSize / 2, viewSize / 2, - viewSize / 2, 1, 1000 );
-    // if (container.clientWidth < 600) {
-    //     camera.position.set(0, 0, 900);
-    // }
-    // else if (container.clientWidth < 750) {
-    //     camera.position.set(0, 0, 800);
-    // }
-    // else {
-    //     camera.position.set(0, 0, 400);
-    // }
 
     camera.position.set(0, 0, 400);
-    // camera.zoom = 2.5;
     camera.updateProjectionMatrix();
 
     camera.lookAt(scene.position);
@@ -137,10 +127,10 @@ window.addEventListener('load', function () {
         return object;
     })
     .then(object => {
-        object.position.set(0, 0, 0);
+        object.position.set(0, -5, 0);
         object.castShadow = true;
         object.receiveShadow = true;
-        object.rotation.y -= (Math.PI / 45);
+        object.rotation.y -= (Math.PI / 12);
         scene.add(object);
         renderer.render(scene, camera);
         return object;
@@ -154,9 +144,11 @@ window.addEventListener('load', function () {
                 return;
             } 
 
-            requestAnimationFrame(animation);
-            object.rotation.y += Math.PI / 180;
+            object.rotation.y += Math.PI / 360;
             renderer.render(scene, camera);
+
+            requestAnimationFrame(animation);
+            
         
         });           
 
@@ -206,7 +198,7 @@ window.addEventListener('load', function () {
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.minZoom = 1;
-    controls.maxZoom = 15;
+    controls.maxZoom = 10;
 
     controls.addEventListener("change", () => {
         renderer.render(scene, camera);
@@ -220,17 +212,6 @@ window.addEventListener('load', function () {
     function onWindowResize(e) {
 
         let aspect = container.clientWidth / container.clientHeight;
-        // 0.5 * frustumSize * aspect
-
-        // if (container.clientWidth < 600) {
-        //     camera.position.set(0, 0, 900);
-        // }
-        // else if (container.clientWidth < 800) {
-        //     camera.position.set(0, 0, 750);
-        // }
-        // else {
-        //     camera.position.set(0, 0, 400);
-        // }
 
         let change = originalAspect / aspect;
         let newSize = viewSize * change;
