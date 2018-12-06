@@ -28,9 +28,9 @@ window.addEventListener('load', function () {
                 if (prev != current) {
                     prev.classList.toggle("active");
                     current.classList.toggle("active");
-                    if (el.dataset.id == "home") {
-                        onWindowResize();
-                    }
+                    // if (el.dataset.id == "home") {
+                    //     reset3d();
+                    // }
                 }
 
             }
@@ -92,6 +92,7 @@ window.addEventListener('load', function () {
 
     var viewSize = 250;
     var originalAspect;
+    // var obj;
     var aspectRatio = container.clientWidth  / container.clientHeight;
     originalAspect = container.clientWidth  / container.clientHeight;
     const camera = new THREE.OrthographicCamera( - aspectRatio * viewSize / 2, aspectRatio * viewSize / 2, viewSize / 2, - viewSize / 2, 1, 1000 );
@@ -138,19 +139,8 @@ window.addEventListener('load', function () {
     // animate with a rotation after model is loaded
     .then(object => {
 
-        requestAnimationFrame(function animation(time) {
-
-            if(object.rotation.y >= 0) {
-                return;
-            } 
-
-            object.rotation.y += Math.PI / 360;
-            renderer.render(scene, camera);
-
-            requestAnimationFrame(animation);
-            
-        
-        });           
+        initAnimation(object);
+        // obj =  object;
 
     });
 
@@ -181,8 +171,8 @@ window.addEventListener('load', function () {
     scene.add(dlight);
 
 
-    var helper = new THREE.CameraHelper(light.shadow.camera);
-    scene.add(helper);
+    // var helper = new THREE.CameraHelper(light.shadow.camera);
+    // scene.add(helper);
 
 
     const planeGeometry = new THREE.PlaneGeometry(500, 500);
@@ -229,6 +219,21 @@ window.addEventListener('load', function () {
 
     }
 
+    function initAnimation(object) {
+        requestAnimationFrame(function animation(time) {
+
+            if(object.rotation.y >= 0) {
+                return;
+            } 
+
+            object.rotation.y += Math.PI / 360;
+            renderer.render(scene, camera);
+
+            requestAnimationFrame(animation);
+            
+        
+        }); 
+    }
 
 
 });
