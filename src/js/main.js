@@ -76,7 +76,6 @@ window.addEventListener('load', function () {
 
 
     THREE.Cache.enabled = true;
-    const loader = new THREE.FontLoader();
     var container = document.querySelector(".home");
     var windowHalfX = container.clientWidth / 2;
     var windowHalfY = container.clientHeight / 2;
@@ -92,6 +91,8 @@ window.addEventListener('load', function () {
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
+    // camera
+
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
     if (container.clientWidth < 600) {
         camera.position.set(0, 0, 900);
@@ -105,14 +106,21 @@ window.addEventListener('load', function () {
 
     camera.lookAt(scene.position);
 
+    // load object and add material
+
+    const material = new THREE.MeshLambertMaterial({ color: 0x5A5A5A, flatShading: true });
+
+    function loader(url) {
+        return new Promise(resolve => {
+            const objLoader = new THREE.OBJLoader();
+            objLoader.setPath('/assets/');
+            objLoader.load(url, resolve);
+        })
+    }
 
 
-    const objLoader = new THREE.OBJLoader();
-    objLoader.setPath('/assets/');
-
-    const material = new THREE.MeshLambertMaterial({ color: 0x5D5E5E, flatShading: true });
-    objLoader.setPath('assets/');
-    objLoader.load('etcetera.obj', function (object) {
+    loader('etcetera.obj')
+    .then(object => {
         object.traverse(function (child) {
             if (child instanceof THREE.Mesh) {
                 child.material = material;
@@ -120,11 +128,31 @@ window.addEventListener('load', function () {
                 child.receiveShadow = true;
             }
         });
+        return object;
+    })
+    .then(object => {
         object.position.set(0, 0, 0);
         object.castShadow = true;
         object.receiveShadow = true;
+        object.rotation.y -= (Math.PI / 4);
         scene.add(object);
         renderer.render(scene, camera);
+        return object;
+    })
+    // animate with a rotation after model is loaded
+    .then(object => {
+
+        requestAnimationFrame(function animation(time) {
+
+            if(object.rotation.y >= 0) {
+                return;
+            } 
+
+            requestAnimationFrame(animation);
+            object.rotation.y += Math.PI / 180;
+            renderer.render(scene, camera);
+        
+        });           
 
     });
 
@@ -150,7 +178,7 @@ window.addEventListener('load', function () {
 
     //light illuminate from above
 
-    var dlight = new THREE.DirectionalLight(0xffffff, 0.3);
+    var dlight = new THREE.DirectionalLight(0xffffff, 0.5);
     dlight.position.set(0, 194, 0);
     scene.add(dlight);
 
@@ -182,7 +210,7 @@ window.addEventListener('load', function () {
         renderer.render(scene, camera);
     });
 
-    renderer.render(scene, camera);
+    // renderer.render(scene, camera);
 
 
     window.addEventListener('resize', onWindowResize, false);
@@ -205,6 +233,7 @@ window.addEventListener('load', function () {
 
 
         camera.updateProjectionMatrix();
+        controls.update();
 
         camera.lookAt(scene.position);
         renderer.setSize(container.clientWidth, container.clientHeight);
