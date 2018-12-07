@@ -7,6 +7,7 @@ import Detector from "./lib/Detector.js";
 import { OBJLoader } from 'three-obj-mtl-loader';
 var OrbitControls = require('three-orbitcontrols');
 import "../assets/etcetera.obj";
+import '../img/favicon.ico';
 
 
 
@@ -15,6 +16,7 @@ window.addEventListener('load', function () {
     var workItem = document.querySelectorAll(".work__item");
     var scrollNav = document.querySelectorAll(".work__nav-link");
     var merch = document.querySelectorAll(".merch-photo");
+    var slider = document.querySelector(".work__slider");
 
     //navigation
 
@@ -30,11 +32,13 @@ window.addEventListener('load', function () {
                 if (prev != current) {
                     prev.classList.toggle("active");
                     current.classList.toggle("active");
-                    //reset scroll position
-                    // if (el.dataset.id == "work" || prev.classList.contains("work")) {
-                    //     scrollNav[0].click();
 
-                    // }
+                    if (el.dataset.id == "work") {
+                        
+                        slider.style.scrollBehavior = "auto";
+                        scrollNav[0].click();
+                        slider.style.scrollBehavior = "smooth";
+                    }
                 }
 
             }
@@ -97,15 +101,31 @@ window.addEventListener('load', function () {
     container.appendChild(renderer.domElement);
 
     // camera
+    var viewSize;
 
-    var viewSize = 250;
+    if(container.clientWidth < 600) {
+        viewSize = 2750;
+    }
+
+    else if(container.clientWidth < 1100) {
+        viewSize = 2000;
+    }
+
+    else {
+        viewSize = 1250;
+    }
+
+  
     var originalAspect;
+    var windowHalfX = container.clientWidth / 2;
+    var windowHalfY = container.clientHeight / 2;
     // var obj;
     var aspectRatio = container.clientWidth  / container.clientHeight;
     originalAspect = container.clientWidth  / container.clientHeight;
-    const camera = new THREE.OrthographicCamera( - aspectRatio * viewSize / 2, aspectRatio * viewSize / 2, viewSize / 2, - viewSize / 2, 1, 1000 );
+    const camera = new THREE.OrthographicCamera( -aspectRatio * viewSize / 2, aspectRatio * viewSize / 2, viewSize / 2, -viewSize / 2, 1, 1000 );
 
     camera.position.set(0, 0, 400);
+    camera.zoom = 5;
     camera.updateProjectionMatrix();
 
     camera.lookAt(scene.position);
@@ -114,18 +134,11 @@ window.addEventListener('load', function () {
     // load object and add material
 
     const material = new THREE.MeshLambertMaterial({ color: 0x5A5A5A, flatShading: true });
-
-    function loader(url) {
-        return new Promise(resolve => {
-            const objLoader = new THREE.OBJLoader();
-            objLoader.setPath('/assets/');
-            objLoader.load(url, resolve);
-        })
-    }
+    const objLoader = new THREE.OBJLoader();
+    objLoader.setPath('/assets/');
 
 
-    loader('etcetera.obj')
-    .then(object => {
+    objLoader.load('etcetera.obj', function(object) {
         object.traverse(function (child) {
             if (child instanceof THREE.Mesh) {
                 child.material = material;
@@ -133,24 +146,17 @@ window.addEventListener('load', function () {
                 child.receiveShadow = true;
             }
         });
-        return object;
-    })
-    .then(object => {
         object.position.set(0, -5, 0);
         object.castShadow = true;
         object.receiveShadow = true;
         object.rotation.y -= (Math.PI / 8);
         scene.add(object);
         renderer.render(scene, camera);
-        return object;
-    })
-    // animate with a rotation after model is loaded
-    .then(object => {
 
         initAnimation(object);
-        // obj =  object;
-
     });
+
+    
 
     // light to make shadow
 
@@ -195,7 +201,7 @@ window.addEventListener('load', function () {
     scene.add(plane);
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.minZoom = 1;
+    controls.minZoom = 2;
     controls.maxZoom = 10;
 
     controls.addEventListener("change", () => {
@@ -210,6 +216,18 @@ window.addEventListener('load', function () {
     function onWindowResize(e) {
 
         let aspect = container.clientWidth / container.clientHeight;
+
+        // if(container.clientWidth < 600) {
+        //     viewSize = 2750;
+        // }
+
+        // else if(container.clientWidth < 800) {
+        //     viewSize = 2000;
+        // }
+
+        // else {
+        //     viewSize = 1190;
+        // }
 
         let change = originalAspect / aspect;
         let newSize = viewSize * change;

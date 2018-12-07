@@ -88,19 +88,17 @@ module.exports = {
             outputPath: 'assets/'
           }
         }
+      },
+      {
+        test: /\.(ico)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: '[name].[ext]',
+            outputPath: './'
+          }
+        }
       }
-
-      // {
-      //   test: /(Arial-Black\.json)$/,
-      //   type: 'javascript/auto',
-      //   use: {
-      //     loader: "file-loader",
-      //     options: {
-      //       name: '[name].[ext]',
-      //       outputPath: 'assets/'
-      //     }
-      //   }
-      // }
     ]
   },
   plugins: [

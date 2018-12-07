@@ -195,7 +195,7 @@
             margin-bottom : 12.5vh;
             min-height: 75vh;
             &:last-child {
-                padding-bottom: 0;
+                padding-bottom: 12.5vh;
             }
             &:nth-child(even) {
                 .work__media {
@@ -212,15 +212,17 @@
             height: 33vw;
             background: none;
             box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.4), -3px -1px 25px rgba(0, 0, 0, 0.4);
-            -webkit-overflow-scrolling: touch;
-            -ms-overflow-style: none; // IE 10+
-            overflow: -moz-scrollbars-none; // Firefox
-            &::-webkit-scrollbar {
-                display: none; // Safari and Chrome
-        }
+            overflow: hidden;
         }
         &__iframe {
             display: block;
+            // hide scrollbar
+            &\--tiempo {
+                width: calc(100% + 17px);
+                margin-right: -17px;
+                padding-right: 17px;
+            }
+            
         }
         &__img {
             display: none;
