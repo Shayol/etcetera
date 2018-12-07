@@ -18,6 +18,8 @@ window.addEventListener('load', function () {
 
     //navigation
 
+
+
     navs.forEach(function (el) {
         el.addEventListener('change', function () {
 
@@ -28,14 +30,20 @@ window.addEventListener('load', function () {
                 if (prev != current) {
                     prev.classList.toggle("active");
                     current.classList.toggle("active");
-                    // if (el.dataset.id == "home") {
-                    //     reset3d();
+                    //reset scroll position
+                    // if (el.dataset.id == "work" || prev.classList.contains("work")) {
+                    //     scrollNav[0].click();
+
                     // }
                 }
 
             }
         });
     });
+
+    if(location.href.includes('#')) {
+        scrollNav[0].click();
+    }
 
     //observe items showing in viewport in wrk section
 
@@ -131,7 +139,7 @@ window.addEventListener('load', function () {
         object.position.set(0, -5, 0);
         object.castShadow = true;
         object.receiveShadow = true;
-        object.rotation.y -= (Math.PI / 12);
+        object.rotation.y -= (Math.PI / 8);
         scene.add(object);
         renderer.render(scene, camera);
         return object;
@@ -226,7 +234,7 @@ window.addEventListener('load', function () {
                 return;
             } 
 
-            object.rotation.y += Math.PI / 360;
+            object.rotation.y += Math.PI / 580;
             renderer.render(scene, camera);
 
             requestAnimationFrame(animation);
