@@ -6,7 +6,6 @@
     opacity: 0;
     z-index: -1;
     height: 100%;
-    font-size: 15vmin;
     @media(min-width: $desktop) {
         &__text {
             font-size: 20vmin;

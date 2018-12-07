@@ -91,6 +91,7 @@ window.addEventListener('load', function () {
     var container = document.querySelector(".home");
 
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color();
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -98,7 +99,7 @@ window.addEventListener('load', function () {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.setClearColor(new THREE.Color(), 1);
     renderer.setSize(container.clientWidth, container.clientHeight);
-    container.appendChild(renderer.domElement);
+    
 
     // camera
     var viewSize;
@@ -135,28 +136,7 @@ window.addEventListener('load', function () {
 
     const material = new THREE.MeshLambertMaterial({ color: 0x5A5A5A, flatShading: true });
     const objLoader = new THREE.OBJLoader();
-    objLoader.setPath('/assets/');
-
-
-    objLoader.load('etcetera.obj', function(object) {
-        object.traverse(function (child) {
-            if (child instanceof THREE.Mesh) {
-                child.material = material;
-                child.castShadow = true;
-                child.receiveShadow = true;
-            }
-        });
-        object.position.set(0, -5, 0);
-        object.castShadow = true;
-        object.receiveShadow = true;
-        object.rotation.y -= (Math.PI / 8);
-        scene.add(object);
-        renderer.render(scene, camera);
-
-        initAnimation(object);
-    });
-
-    
+    objLoader.setPath('/assets/');   
 
     // light to make shadow
 
@@ -208,26 +188,30 @@ window.addEventListener('load', function () {
         renderer.render(scene, camera);
     });
 
-    renderer.render(scene, camera);
+    objLoader.load('etcetera.obj', function(object) {
+        object.traverse(function (child) {
+            if (child instanceof THREE.Mesh) {
+                child.material = material;
+                child.castShadow = true;
+                child.receiveShadow = true;
+            }
+        });
+        object.position.set(0, 0, 0);
+        object.castShadow = true;
+        object.receiveShadow = true;
+        object.rotation.y -= (Math.PI / 8);
+        scene.add(object);
+        container.appendChild(renderer.domElement);
+        renderer.render(scene, camera);
 
+        initAnimation(object);
+    });
 
     window.addEventListener('resize', onWindowResize, false);
 
     function onWindowResize(e) {
 
         let aspect = container.clientWidth / container.clientHeight;
-
-        // if(container.clientWidth < 600) {
-        //     viewSize = 2750;
-        // }
-
-        // else if(container.clientWidth < 800) {
-        //     viewSize = 2000;
-        // }
-
-        // else {
-        //     viewSize = 1190;
-        // }
 
         let change = originalAspect / aspect;
         let newSize = viewSize * change;
@@ -260,6 +244,20 @@ window.addEventListener('load', function () {
         
         }); 
     }
+
+    //load iframes
+
+
+    function deferIframes() {
+        let vidDefer = document.getElementsByTagName('iframe');
+        for (let i=0; i<vidDefer.length; i++) {
+            if(vidDefer[i].getAttribute('data-src')) {
+                vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+            } 
+        } 
+    }
+
+    deferIframes();
 
 
 });
