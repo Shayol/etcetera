@@ -202,7 +202,7 @@ window.addEventListener('load', function () {
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.minZoom = 2;
-    controls.maxZoom = 10;
+    controls.maxZoom = 15;
 
     controls.addEventListener("change", () => {
         renderer.render(scene, camera);
