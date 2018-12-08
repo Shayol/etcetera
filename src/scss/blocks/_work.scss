@@ -1,6 +1,4 @@
 .work {
-    padding-left: calc(9.6vw - 15px);
-    padding-right: calc(9.6vw - 15px);
     opacity: 0;
     z-index: -1;
     position: static;
@@ -18,12 +16,8 @@
         height: 80.7vh;
         overflow-y: scroll;
         overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: none; // IE 10+
-        overflow: -moz-scrollbars-none; // Firefox
-        &::-webkit-scrollbar {
-            display: none; // Safari and Chrome
-        }
+        padding-left: calc(9.6vw - 15px);
+        padding-right: calc(9.6vw - 15px);
     }
     &__item {
         display: flex;
@@ -178,9 +172,16 @@
             -moz-osx-font-smoothing: grayscale;
         }
         &__slider {
+            padding-left: 0;
             margin-right: -17px;
             padding-right: 17px;
             height: 74vh;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none; // IE 10+
+            overflow: -moz-scrollbars-none; // Firefox
+            &::-webkit-scrollbar {
+                display: none; // Safari and Chrome
+            }
         }
         &__slider-wrapper {
             margin-right: 17px;
