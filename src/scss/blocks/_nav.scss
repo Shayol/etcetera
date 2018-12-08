@@ -4,7 +4,8 @@
     width: 100%;
     flex-shrink: 0;
     z-index: 20;
-    padding: 3.7vh 0;
+    height: 9.65vh;
+    align-items: center; // padding: 3.7vh 0;
     &\--top {
         position: relative;
     }
@@ -40,8 +41,7 @@
         }
     }
     @media(min-width: $desktop) {
-        padding-bottom: 4.8vh;
-        padding-top: 4.8vh;
+        height: 12.5vh;
         &__label {
             font-size: 1.6vw;
             letter-spacing: 0.17em;

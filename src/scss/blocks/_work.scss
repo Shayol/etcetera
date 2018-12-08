@@ -11,11 +11,11 @@
         display: none;
     } //hides scrollbar on mozilla
     &__slider-wrapper {
-        height: 81vh;
+        height: 80.7vh;
         overflow: hidden;
     }
     &__slider {
-        height: 81vh;
+        height: 80.7vh;
         overflow-y: scroll;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
@@ -30,20 +30,20 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 81vh;
-        margin-bottom: 9.5vh;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 15px;
+        height: 80.7vh; // margin-bottom: 9.5vh;
+        padding: 15px;
+        &:last-child {
+            margin-bottom: 9.65vh;
+        }
     }
     &__text {
         padding-top: 3.5vh;
     }
     &__media {
-        width: 70.8vw;
-        height: 70.8vw;
+        width: 35vh;
+        height: 35vh;
         position: relative; // overflow: hidden;
-        flex-shrink: 0;
+        flex-shrink: 1;
         box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.3), -3px -1px 15px rgba(0, 0, 0, 0.3);
         background-repeat: no-repeat;
         background-size: cover;
@@ -180,16 +180,18 @@
         &__slider {
             margin-right: -17px;
             padding-right: 17px;
+            height: 74vh;
         }
         &__slider-wrapper {
             margin-right: 17px;
+            height: 74vh;
         }
         &__item {
             padding: 0 25px;
             flex-direction: row;
             justify-content: space-between;
             margin-bottom: 12.5vh;
-            min-height: 75vh;
+            height: 74vh;
             &:last-child {
                 margin-bottom: 0;
             }
@@ -214,8 +216,6 @@
             display: block; // hide scrollbar
             &\--tiempo {
                 width: calc(100% + 17px);
-                margin-right: -17px;
-                padding-right: 17px;
             }
         }
         &__img {
