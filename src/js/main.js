@@ -34,7 +34,7 @@ window.addEventListener('load', function () {
                     current.classList.toggle("active");
 
                     if (el.dataset.id == "work") {
-                        
+
                         slider.style.scrollBehavior = "auto";
                         scrollNav[0].click();
                         slider.style.scrollBehavior = "smooth";
@@ -45,7 +45,7 @@ window.addEventListener('load', function () {
         });
     });
 
-    if(location.href.includes('#')) {
+    if (location.href.includes('#')) {
         scrollNav[0].click();
     }
 
@@ -99,16 +99,16 @@ window.addEventListener('load', function () {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.setClearColor(new THREE.Color(), 1);
     renderer.setSize(container.clientWidth, container.clientHeight);
-    
+
 
     // camera
     var viewSize;
 
-    if(container.clientWidth < 600) {
+    if (container.clientWidth < 600) {
         viewSize = 2750;
     }
 
-    else if(container.clientWidth < 1100) {
+    else if (container.clientWidth < 1100) {
         viewSize = 2000;
     }
 
@@ -116,14 +116,14 @@ window.addEventListener('load', function () {
         viewSize = 1250;
     }
 
-  
+
     var originalAspect;
     var windowHalfX = container.clientWidth / 2;
     var windowHalfY = container.clientHeight / 2;
     // var obj;
-    var aspectRatio = container.clientWidth  / container.clientHeight;
-    originalAspect = container.clientWidth  / container.clientHeight;
-    const camera = new THREE.OrthographicCamera( -aspectRatio * viewSize / 2, aspectRatio * viewSize / 2, viewSize / 2, -viewSize / 2, 1, 1000 );
+    var aspectRatio = container.clientWidth / container.clientHeight;
+    originalAspect = container.clientWidth / container.clientHeight;
+    const camera = new THREE.OrthographicCamera(-aspectRatio * viewSize / 2, aspectRatio * viewSize / 2, viewSize / 2, -viewSize / 2, 1, 1000);
 
     camera.position.set(0, 0, 400);
     camera.zoom = 5;
@@ -136,7 +136,7 @@ window.addEventListener('load', function () {
 
     const material = new THREE.MeshLambertMaterial({ color: 0x5A5A5A, flatShading: true });
     const objLoader = new THREE.OBJLoader();
-    objLoader.setPath('/assets/');   
+    objLoader.setPath('/assets/');
 
     // light to make shadow
 
@@ -188,7 +188,7 @@ window.addEventListener('load', function () {
         renderer.render(scene, camera);
     });
 
-    objLoader.load('etcetera.obj', function(object) {
+    objLoader.load('etcetera.obj', function (object) {
         object.traverse(function (child) {
             if (child instanceof THREE.Mesh) {
                 child.material = material;
@@ -216,7 +216,7 @@ window.addEventListener('load', function () {
         let change = originalAspect / aspect;
         let newSize = viewSize * change;
         camera.left = -aspect * newSize / 2;
-        camera.right = aspect * newSize  / 2;
+        camera.right = aspect * newSize / 2;
         camera.top = newSize / 2;
         camera.bottom = -newSize / 2;
 
@@ -232,17 +232,17 @@ window.addEventListener('load', function () {
     function initAnimation(object) {
         requestAnimationFrame(function animation(time) {
 
-            if(object.rotation.y >= 0) {
+            if (object.rotation.y >= 0) {
                 return;
-            } 
+            }
 
-            object.rotation.y += Math.PI / 580;
+            object.rotation.y += Math.PI / 360;
             renderer.render(scene, camera);
 
             requestAnimationFrame(animation);
-            
-        
-        }); 
+
+
+        });
     }
 
     //load iframes
@@ -250,11 +250,11 @@ window.addEventListener('load', function () {
 
     function deferIframes() {
         let vidDefer = document.getElementsByTagName('iframe');
-        for (let i=0; i<vidDefer.length; i++) {
-            if(vidDefer[i].getAttribute('data-src')) {
-                vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
-            } 
-        } 
+        for (let i = 0; i < vidDefer.length; i++) {
+            if (vidDefer[i].getAttribute('data-src')) {
+                vidDefer[i].setAttribute('src', vidDefer[i].getAttribute('data-src'));
+            }
+        }
     }
 
     deferIframes();

@@ -5,7 +5,8 @@
     overflow: hidden;
     display: flex;
     align-items: stretch;
-    &:after, &:before {
+    &:after,
+    &:before {
         position: absolute;
         content: '';
         width: 100%;
@@ -14,14 +15,13 @@
         right: 0;
         z-index: 30;
     }
-
     &:before {
         background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 100%);
-        top: 0;
+        top: -1px;
     }
     &:after {
         background: linear-gradient(to top, white 0%, rgba(255, 255, 255, 0) 100%);
-        bottom: 0;
+        bottom: -1px;
     }
     &__item {
         transition: opacity 0.4s cubic-bezier(.02, .01, .47, 1);
@@ -35,7 +35,8 @@
         width: 100%;
     }
     @media(min-width: $desktop) {
-        &:after, &:before { 
+        &:after,
+        &:before {
             height: 50px;
         }
         &__item {

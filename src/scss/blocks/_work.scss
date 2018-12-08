@@ -11,15 +11,11 @@
         display: none;
     } //hides scrollbar on mozilla
     &__slider-wrapper {
-        height: 100vh;
-        overflow: hidden;
-    }
-    &__slider-wrapper {
-        height: 100vh;
+        height: 81vh;
         overflow: hidden;
     }
     &__slider {
-        height: 100vh;
+        height: 81vh;
         overflow-y: scroll;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
@@ -34,14 +30,11 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 75vh;
-        margin-bottom: 12.5vh;
-        padding-top: 15px;
+        min-height: 81vh;
+        margin-bottom: 9.5vh;
         padding-left: 15px;
         padding-right: 15px;
-        &:last-child {
-            padding-bottom: 25vh;
-        }
+        padding-top: 15px;
     }
     &__text {
         padding-top: 3.5vh;
@@ -192,10 +185,10 @@
             padding: 0 25px;
             flex-direction: row;
             justify-content: space-between;
-            margin-bottom : 12.5vh;
+            margin-bottom: 12.5vh;
             min-height: 75vh;
             &:last-child {
-                padding-bottom: 12.5vh;
+                margin-bottom: 0;
             }
             &:nth-child(even) {
                 .work__media {
@@ -215,14 +208,12 @@
             overflow: hidden;
         }
         &__iframe {
-            display: block;
-            // hide scrollbar
+            display: block; // hide scrollbar
             &\--tiempo {
                 width: calc(100% + 17px);
                 margin-right: -17px;
                 padding-right: 17px;
             }
-            
         }
         &__img {
             display: none;
