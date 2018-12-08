@@ -34,10 +34,7 @@ window.addEventListener('load', function () {
                     current.classList.toggle("active");
 
                     if (el.dataset.id == "work") {
-
-                        slider.style.scrollBehavior = "auto";
-                        scrollNav[0].click();
-                        slider.style.scrollBehavior = "smooth";
+                        TweenLite.to(slider, 0, { scrollTo: "#work1" });
                     }
                 }
 
@@ -45,9 +42,15 @@ window.addEventListener('load', function () {
         });
     });
 
-    if (location.href.includes('#')) {
-        scrollNav[0].click();
-    }
+    scrollNav.forEach(el => {
+        el.addEventListener('click', e => {
+            if (TweenLite) {
+                e.preventDefault();
+                TweenLite.to(slider, 1, { scrollTo: "#" + el.href.split("#")[1] });
+            }
+        });
+    });
+
 
     //observe items showing in viewport in wrk section
 
