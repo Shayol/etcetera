@@ -92,7 +92,7 @@
         padding-bottom: 3vh;
         text-decoration: none;
         display: block;
-        transition: color 0.3s ease-out;
+        transition: color 0.6s ease-out;
         &:hover {
             color: #747474;
         }
@@ -118,6 +118,10 @@
         font-weight: 700;
         color: black;
         text-decoration: none;
+        transition: color 0.6s ease-out;
+        &:hover {
+            color: #747474;
+        }
     }
     @media(min-width: $desktop) {
         padding-left: 9vw;
@@ -132,7 +136,7 @@
             transform: translateY(-50%);
             position: fixed;
             width: 1.05vw;
-            margin-right: -0.5vw;
+            margin-right: 0.5vw;
         }
         &__nav-link {
             width: 0.7vw;
@@ -201,8 +205,8 @@
             padding-top: 0;
         }
         &__media {
-            width: 22vw;
-            height: 33vw;
+            width: 19vw;
+            height: 33.77vw;
             background: none;
             box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.4), -3px -1px 25px rgba(0, 0, 0, 0.4);
             overflow: hidden;

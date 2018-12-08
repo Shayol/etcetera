@@ -22,6 +22,9 @@
         padding-bottom: 2em;
         font-size: 4.8vw;
         color: black;
+        &:last-child {
+            padding-bottom: 0;
+        }
     }
     &__etcetera {
         font-style: italic;
