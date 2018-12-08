@@ -199,7 +199,7 @@ window.addEventListener('load', function () {
         object.position.set(0, 0, 0);
         object.castShadow = true;
         object.receiveShadow = true;
-        object.rotation.y -= (Math.PI / 8);
+        object.rotation.y -= (Math.PI / 6);
         scene.add(object);
         container.appendChild(renderer.domElement);
         renderer.render(scene, camera);
@@ -236,7 +236,7 @@ window.addEventListener('load', function () {
                 return;
             }
 
-            object.rotation.y += Math.PI / 360;
+            object.rotation.y += Math.PI / 180;
             renderer.render(scene, camera);
 
             requestAnimationFrame(animation);
