@@ -10,10 +10,9 @@
         max-width: 30px;
         max-height: 30px;
         display: inline-block;
-        border-radius: 50%;
         background-color: black;
-        margin-left: 2vw;
-        margin-right: 2vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
         opacity: 0;
         animation: showHideDot 2.5s ease-in-out infinite;
         &\--one {
