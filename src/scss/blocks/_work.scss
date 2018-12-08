@@ -10,10 +10,11 @@
     }
     &__slider-wrapper {
         height: 80.7vh;
+        height: calc(var(--vh, 1vh) * 80.7);
         overflow: hidden;
     }
     &__slider {
-        height: 80.7vh;
+        height: 100%;
         overflow-y: scroll;
         overflow-x: hidden;
         padding-left: calc(9.6vw - 15px);
@@ -24,7 +25,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 80.7vh; // margin-bottom: 9.5vh;
+        height: calc(var(--vh, 1vh) * 80.7);
         padding: 15px;
         &:last-child {
             margin-bottom: 9.65vh;
@@ -36,6 +37,8 @@
     &__media {
         width: 35vh;
         height: 35vh;
+        height: calc(var(--vh, 1vh) * 35);
+        width: calc(var(--vh, 1vh) * 35);
         position: relative; // overflow: hidden;
         flex-shrink: 1;
         box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.3), -3px -1px 15px rgba(0, 0, 0, 0.3);

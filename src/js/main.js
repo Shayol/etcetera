@@ -9,6 +9,12 @@ var OrbitControls = require('three-orbitcontrols');
 import "../assets/etcetera.obj";
 import '../img/favicon.ico';
 
+window.addEventListener('resize', () => {
+    // calculate vh for mobile
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
 
 
 window.addEventListener('load', function () {
@@ -32,7 +38,7 @@ window.addEventListener('load', function () {
                 if (prev != current) {
                     prev.classList.toggle("active");
                     current.classList.toggle("active");
-
+                    //reset slider
                     if (el.dataset.id == "work") {
                         TweenLite.to(slider, 0, { scrollTo: "#work1" });
                     }

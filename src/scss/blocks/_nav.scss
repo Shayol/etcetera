@@ -5,7 +5,8 @@
     flex-shrink: 0;
     z-index: 20;
     height: 9.65vh;
-    align-items: center; // padding: 3.7vh 0;
+    height: calc(var(--vh, 1vh) * 9.65);
+    align-items: center;
     &\--top {
         position: relative;
     }
