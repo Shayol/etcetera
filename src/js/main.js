@@ -79,15 +79,15 @@ window.addEventListener('load', function () {
 
 
     //origami merch show hide 
-    merch.forEach((el, index) => {
+    // merch.forEach((el, index) => {
 
-        el.addEventListener('click', e => {
-            el.style.opacity = '0';
-            el.style.zIndex = '-1';
-            merch[index ? 0 : 1].style.opacity = '1';
-            merch[index ? 0 : 1].style.zIndex = '1';
-        });
-    });
+    //     el.addEventListener('click', e => {
+    //         el.style.opacity = '0';
+    //         el.style.zIndex = '-1';
+    //         merch[index ? 0 : 1].style.opacity = '1';
+    //         merch[index ? 0 : 1].style.zIndex = '1';
+    //     });
+    // });
 
     // text 3d
 

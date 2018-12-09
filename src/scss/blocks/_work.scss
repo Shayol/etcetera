@@ -17,8 +17,9 @@
         height: 100%;
         overflow-y: scroll;
         overflow-x: hidden;
-        padding-left: calc(9.6vw - 15px);
-        padding-right: calc(9.6vw - 15px);
+        padding-left: 5.6vw;
+        padding-right: 5.6vw;
+        -webkit-overflow-scrolling: touch;
     }
     &__item {
         display: flex;
@@ -26,7 +27,7 @@
         align-items: center;
         justify-content: center;
         height: calc(var(--vh, 1vh) * 80.7);
-        padding: 15px;
+        padding: 15px 0;
         &:last-child {
             margin-bottom: 9.65vh;
         }
@@ -35,27 +36,29 @@
         padding-top: 3.5vh;
     }
     &__media {
-        width: 35vh;
-        height: 35vh;
-        height: calc(var(--vh, 1vh) * 35);
-        width: calc(var(--vh, 1vh) * 35);
+        padding-top: 62.22%;
+        height: 0;
+        width: 100%; // max-width: calc(var(--vh, 1vh) * 62.22);
         position: relative; // overflow: hidden;
         flex-shrink: 1;
         box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.3), -3px -1px 15px rgba(0, 0, 0, 0.3);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50%;
+        &\--origami {
+            background-image: url("../img/temp1.jpg");
+        }
         &\--zorro {
-            background-image: url("../img/zorro.png");
+            background-image: url("../img/temp2.jpg");
         }
         &\--tiempo {
-            background-image: url("../img/tiempo.png");
+            background-image: url("../img/temp1.jpg");
         }
         &\--installations {
             background-image: url("../img/installations.png");
         }
         &\--cube {
-            box-shadow: none;
+            background-image: url("../img/temp2.jpg");
         }
     }
     &__iframe {
