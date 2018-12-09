@@ -9,16 +9,18 @@
         display: none;
     }
     &__slider-wrapper {
-        height: 80.7vh;
-        height: calc(var(--vh, 1vh) * 80.7);
-        overflow: hidden;
+        height: 100%;
+        min-height: 100%;
+        max-height: 100%; // overflow: hidden;
     }
     &__slider {
         height: 100%;
+        min-height: 100%;
+        max-height: 100%;
         overflow-y: scroll;
         overflow-x: hidden;
-        padding-left: 5.6vw;
-        padding-right: 5.6vw;
+        padding-left: 9.6vw;
+        padding-right: 9.6vw;
         -webkit-overflow-scrolling: touch;
     }
     &__item {
@@ -26,7 +28,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: calc(var(--vh, 1vh) * 80.7);
+        min-height: 100%;
+        max-height: 100%;
+        height: 100%;
         padding: 15px 0;
         &:last-child {
             margin-bottom: 9.65vh;
@@ -36,10 +40,11 @@
         padding-top: 3.5vh;
     }
     &__media {
-        padding-top: 62.22%;
+        padding-top: 56.25%;
         height: 0;
-        width: 100%; // max-width: calc(var(--vh, 1vh) * 62.22);
-        position: relative; // overflow: hidden;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
         flex-shrink: 1;
         box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.3), -3px -1px 15px rgba(0, 0, 0, 0.3);
         background-repeat: no-repeat;
@@ -182,7 +187,6 @@
             padding-left: 0;
             margin-right: -17px;
             padding-right: 17px;
-            height: 74vh;
             -webkit-overflow-scrolling: touch;
             -ms-overflow-style: none; // IE 10+
             overflow: -moz-scrollbars-none; // Firefox
@@ -192,14 +196,13 @@
         }
         &__slider-wrapper {
             margin-right: 17px;
-            height: 74vh;
+            overflow: hidden;
         }
         &__item {
             padding: 0 25px;
             flex-direction: row;
             justify-content: space-between;
             margin-bottom: 12.5vh;
-            height: 74vh;
             &:last-child {
                 margin-bottom: 0;
             }
@@ -215,6 +218,7 @@
         }
         &__media {
             width: 19vw;
+            padding-top: 0;
             height: 33.77vw;
             background: none;
             box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.4), -3px -1px 25px rgba(0, 0, 0, 0.4);
