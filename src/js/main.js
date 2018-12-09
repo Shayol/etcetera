@@ -9,11 +9,11 @@ var OrbitControls = require('three-orbitcontrols');
 import "../assets/etcetera.obj";
 import '../img/favicon.ico';
 
-window.addEventListener('resize', () => {
-    // calculate vh for mobile
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
+// window.addEventListener('resize', () => {
+//     // calculate vh for mobile
+//     let vh = window.innerHeight * 0.01;
+//     document.documentElement.style.setProperty('--vh', `${vh}px`);
+// });
 
 
 
