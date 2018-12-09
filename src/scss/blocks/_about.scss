@@ -30,15 +30,14 @@
         font-style: italic;
     }
     @media(min-width: $desktop) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         &__content {
             padding-top: 0;
             padding-left: 16%;
             padding-right: 16%;
-            max-height: 76vh;
             padding-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         &__paragraph {
             font-size: 2.22vw;

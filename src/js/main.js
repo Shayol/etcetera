@@ -9,12 +9,6 @@ var OrbitControls = require('three-orbitcontrols');
 import "../assets/etcetera.obj";
 import '../img/favicon.ico';
 
-// window.addEventListener('resize', () => {
-//     // calculate vh for mobile
-//     let vh = window.innerHeight * 0.01;
-//     document.documentElement.style.setProperty('--vh', `${vh}px`);
-// });
-
 
 
 window.addEventListener('load', function () {
@@ -23,6 +17,7 @@ window.addEventListener('load', function () {
     var scrollNav = document.querySelectorAll(".work__nav-link");
     var merch = document.querySelectorAll(".merch-photo");
     var slider = document.querySelector(".work__slider");
+    var media = document.querySelectorAll(".work__media");
 
     //navigation
 
@@ -78,16 +73,21 @@ window.addEventListener('load', function () {
     workItem.forEach((element) => intersectionObserver.observe(element));
 
 
-    //origami merch show hide 
-    // merch.forEach((el, index) => {
+    //gallery show hide 
+    media.forEach((mediaEl) => {
 
-    //     el.addEventListener('click', e => {
-    //         el.style.opacity = '0';
-    //         el.style.zIndex = '-1';
-    //         merch[index ? 0 : 1].style.opacity = '1';
-    //         merch[index ? 0 : 1].style.zIndex = '1';
-    //     });
-    // });
+        let imgs = mediaEl.querySelectorAll(".work__img");
+        imgs.forEach((el, index) => {
+            el.addEventListener('click', e => {
+                el.style.opacity = '0';
+                el.style.zIndex = '-1';
+                imgs[index + 1 >= imgs.length ? 0 : index + 1].style.opacity = '1';
+                imgs[index + 1 >= imgs.length ? 0 : index + 1].style.zIndex = '1';
+            });
+        })
+
+
+    });
 
     // text 3d
 
@@ -205,7 +205,7 @@ window.addEventListener('load', function () {
                 child.receiveShadow = true;
             }
         });
-        object.position.set(0, 0, 0);
+        object.position.set(0, -10, 0);
         object.castShadow = true;
         object.receiveShadow = true;
         object.rotation.y -= (Math.PI / 6);
