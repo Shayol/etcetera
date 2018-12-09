@@ -227,6 +227,10 @@
             flex-shrink: 1;
             background: none;
             box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.4), -3px -1px 25px rgba(0, 0, 0, 0.4);
+            @media(min-width: $desktop) and (max-width: 900px) {
+                width: 15.75vw;
+                height: 28vw;
+            }
         }
         &__iframe {
             display: block;
