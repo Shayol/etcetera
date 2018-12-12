@@ -270,4 +270,10 @@
             letter-spacing: 0.1em;
         } // }
     }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        &__media {
+            width: 20.25vw;
+            height: 36vw;
+        }
+    }
 }
