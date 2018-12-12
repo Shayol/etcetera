@@ -7,10 +7,8 @@
     opacity: 0;
     z-index: -1;
     height: 100%;
-    @media(min-width: $desktop) {
-        &__text {
-            font-size: 20vmin;
-            font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
-        }
+    @media only screen and (max-width: 768px) and (orientation: landscape) {
+        z-index: 100 !important;
+        opacity: 1;
     }
 }
