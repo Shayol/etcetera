@@ -179,7 +179,7 @@ canvas {
   opacity: 0;
   z-index: -1; }
   .about__content {
-    font-size: 4.8vw;
+    font-size: 4.2vmin;
     padding-left: 1.5em;
     padding-right: 1.5em;
     height: 100%;
@@ -203,7 +203,7 @@ canvas {
     line-height: 1.9444em;
     letter-spacing: 0.0555em;
     padding-bottom: 2em;
-    font-size: 4.8vw;
+    font-size: 4.2vmin;
     color: black; }
     .about__paragraph:last-child {
       padding-bottom: 0; }
@@ -214,7 +214,10 @@ canvas {
       padding-top: 0;
       padding-left: 16%;
       padding-right: 16%;
-      padding-bottom: 0; }
+      padding-bottom: 0;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
     .about__paragraph {
       font-size: 2.22vw;
       line-height: 1.25em;
