@@ -2,7 +2,7 @@
     opacity: 0;
     z-index: -1;
     &__content {
-        font-size: 4.8vw;
+        font-size: 4.2vmin;
         padding-left: 1.5em;
         padding-right: 1.5em;
         height: 100%;
@@ -21,7 +21,7 @@
         line-height: 1.9444em;
         letter-spacing: 0.0555em;
         padding-bottom: 2em;
-        font-size: 4.8vw;
+        font-size: 4.2vmin;
         color: black;
         &:last-child {
             padding-bottom: 0;
@@ -36,6 +36,7 @@
             padding-left: 16%;
             padding-right: 16%;
             padding-bottom: 0;
+            justify-content: center;
         }
         &__paragraph {
             font-size: 2.22vw;
