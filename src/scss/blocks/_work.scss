@@ -43,22 +43,6 @@
         position: relative;
         overflow: hidden;
         box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.3), -3px -1px 15px rgba(0, 0, 0, 0.3); // background-repeat: no-repeat; // background-size: cover;
-        // background-position: 50%;
-        // &\--origami {
-        //     background-image: url("../img/temp1.jpg");
-        // }
-        // &\--zorro {
-        //     background-image: url("../img/temp2.jpg");
-        // }
-        // &\--tiempo {
-        //     background-image: url("../img/temp1.jpg");
-        // }
-        // &\--installations {
-        //     background-image: url("../img/installations.png");
-        // }
-        // &\--cube {
-        //     background-image: url("../img/temp2.jpg");
-        // }
     }
     &__iframe {
         position: absolute;
@@ -107,15 +91,6 @@
             color: #747474;
         }
     }
-    &__subheader {
-        font-size: 3.47vw;
-        font-weight: 700;
-        line-height: 3em;
-        text-transform: uppercase;
-        letter-spacing: 0.107em;
-        text-align: center;
-        font-style: italic;
-    }
     &__paragraph {
         font-size: 3.47vw;
         line-height: 1.6em;
@@ -134,7 +109,6 @@
         }
     }
     @media(min-width: $desktop) {
-        // @media not all and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
         padding-left: 9vw;
         padding-right: 10.85vw;
         padding-top: 0;
@@ -207,73 +181,43 @@
         &__item {
             padding: 0 25px;
             max-height: 100%;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-bottom: 12.5vh;
+            margin-bottom: 17.5vh;
             &:last-child {
                 margin-bottom: 0;
             }
-            &:nth-child(even) {
-                .work__media {
-                    order: 1;
-                }
-            }
         }
         &__text {
-            width: 38.18vw;
+            width: 90%;
             padding-top: 0;
         }
         &__media {
-            width: 19vw;
-            padding-top: 0;
-            height: 33.77vw;
-            max-height: 100%;
-            flex-shrink: 1;
+            height: 22.5vw;
+            width: 40vw;
+            padding: 0;
+            flex-shrink: 0;
             background: none;
-            box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.4), -3px -1px 25px rgba(0, 0, 0, 0.4);
-            @media(min-width: $desktop) and (max-width: 900px) {
-                width: 15.75vw;
-                height: 28vw;
-            }
-        }
-        &__iframe {
-            display: block;
-        }
-        &__img {
-            display: none;
-        }
-        &__mobile-img {
-            display: none;
+            box-shadow: 3px 4px 25px rgba(0, 0, 0, 0.4), -3px -1px 25px rgba(0, 0, 0, 0.4); // @media(min-width: $desktop) and (max-width: 900px) {
         }
         &__header {
-            font-size: 2.22vw;
+            font-size: 2vw;
             font-weight: 900;
             line-height: 1.25em;
             letter-spacing: 0.06375em;
-            text-align: left;
-            padding-bottom: 0.6em;
-        }
-        &__subheader {
-            font-size: 1.7vw;
-            font-weight: 700;
-            line-height: 1.6em;
-            letter-spacing: 0.0932em;
-            text-align: left;
+            padding-top: 1.2em;
             padding-bottom: 1em;
         }
         &__description {
-            padding-top: 1.56vh;
+            padding-top: 0;
         }
         &__paragraph {
-            font-size: 1.7vw;
+            font-size: 1.4vw;
             line-height: 1.6em;
             letter-spacing: 0.1em;
-        } // }
-    }
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        &__media {
-            width: 20.25vw;
-            height: 36vw;
         }
-    }
+    } // @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    //     &__media {
+    //         height: 20.25vw;
+    //         width: 36vw;
+    //     }
+    // }
 }
