@@ -48,6 +48,9 @@
     }
     &__iframe {
         border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
         margin: 0;
         padding: 0;
         height: 100%;
@@ -72,9 +75,41 @@
             -webkit-filter: grayscale(50%);
         }
         &:last-child {
-            position: static;
-            height: auto;
             opacity: 1;
+        }
+        background-position: 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        &\--merch1 {
+            background-image: url("../img/merch1.jpg");
+        }
+        &\--merch2 {
+            background-image: url("../img/merch2.jpg");
+        }
+        &\--merch3 {
+            background-image: url("../img/merch3.jpg");
+        }
+        &\--hilo1 {
+            background-image: url("../img/hilo1.png");
+        }
+        &\--hilo2 {
+            background-image: url("../img/hilo2.jpg");
+        }
+        &\--tiempo1 {
+            background-image: url("../img/tiempo1.gif");
+        }
+        &\--tiempo2 {
+            background-image: url("../img/tiempo2.gif");
+        }
+        &\--tiempo3 {
+            background-image: url("../img/tiempo3.gif");
+        }
+        &\--live1 {
+            background-image: url("../img/live1.gif");
+            background-size: 100%;
+        }
+        &\--live2 {
+            background-image: url("../img/live2.gif");
         }
     }
     &__header {
@@ -93,6 +128,9 @@
         &:hover {
             color: #747474;
         }
+    }
+    &__subheader {
+        display: none;
     }
     &__paragraph {
         font-size: 3.47vw;
@@ -188,33 +226,43 @@
             }
         }
         &__text {
-            width: 40.625vmax;
+            width: 42vmax;
             padding-top: 0;
         }
         &__media {
-            // height: 22.5vw;
-            width: 40.625vmax;
+            width: 42vmax;
+            height: 23.625vmax;
+            padding: 0;
             flex-shrink: 0;
             background: none;
-            // &\--zorro {
-    //     height: 27.05vmax;
-    // }
         }
         &__header {
-            font-size: 1.75vmax;
+            font-size: 1.735vmax;
             font-weight: 900;
-            line-height: 1.25em;
-            letter-spacing: 0.06375em;
-            padding-top: 2.5em;
-            padding-bottom: 1em;
+            line-height: 1.2em;
+            letter-spacing: 0.069em;
+            padding-top: 2.7em;
+            padding-bottom: 0.2em;
+        }
+        &__subheader {
+            color: #676666;
+            font-family: Arial;
+            font-size: 1.39vw;
+            font-weight: 700;
+            line-height: 1.5em;
+            letter-spacing: 0.052em;
+            text-decoration: none;
+            text-align: center;
+            display: block;
         }
         &__description {
-            padding-top: 0;
+            font-size: 1.52vmax;
+            padding-top: 1em;
         }
         &__paragraph {
-            font-size: 1.4vmax;
+            font-size: 1.52vmax;
             line-height: 1.6em;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.03em;
         }
     }
 }
