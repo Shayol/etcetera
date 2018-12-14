@@ -19,8 +19,8 @@
         max-height: 100%;
         overflow-y: scroll;
         overflow-x: hidden;
-        margin-left: 13.3vw;
-        margin-right: 13.3vw;
+        padding-left: 13.3vw;
+        padding-right: 13.3vw;
         -webkit-overflow-scrolling: touch;
     }
     &__item {
@@ -34,9 +34,6 @@
             margin-bottom: 9.65vh;
         }
     }
-    &__text {
-        padding-top: 3.5vh;
-    }
     &__media {
         padding-top: 100%;
         width: 100%;
@@ -44,6 +41,9 @@
         overflow: hidden;
         &\--zorro {
             height: 40vw;
+        }
+        &\--origami {
+            border: 1px solid black;
         }
     }
     &__iframe {
@@ -89,20 +89,26 @@
         &\--merch3 {
             background-image: url("../img/merch3.jpg");
         }
+        &\--merch4 {
+            background-image: url("../img/merch4.jpg");
+        }
+        &\--merch5 {
+            background-image: url("../img/merch5.jpg");
+        }
+        &\--merch6 {
+            background-image: url("../img/merch6.jpg");
+        }
         &\--hilo1 {
             background-image: url("../img/hilo1.png");
         }
         &\--hilo2 {
-            background-image: url("../img/hilo2.jpg");
+            background-image: url("../img/hilo2.png");
         }
         &\--tiempo1 {
             background-image: url("../img/tiempo1.gif");
         }
         &\--tiempo2 {
             background-image: url("../img/tiempo2.gif");
-        }
-        &\--tiempo3 {
-            background-image: url("../img/tiempo3.gif");
         }
         &\--live1 {
             background-image: url("../img/live1.gif");
@@ -115,13 +121,13 @@
     &__header {
         color: #000000;
         font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
-        font-size: 5.33vw;
+        font-size: 4vw;
         font-weight: 900;
-        line-height: 1.33em;
+        line-height: 2em;
         text-transform: uppercase;
-        letter-spacing: 0.0585em;
+        letter-spacing: 0.07em;
         text-align: center;
-        padding-bottom: 3vh;
+        padding-top: 1.2em;
         text-decoration: none;
         display: block;
         transition: color 0.6s ease-out;
@@ -130,15 +136,29 @@
         }
     }
     &__subheader {
-        display: none;
+        color: #676666;
+        font-family: Arial;
+        font-size: 3.2vw;
+        font-weight: 700;
+        line-height: 2.5em;
+        margin-top: -0.5em;
+        letter-spacing: 0.065em;
+        text-decoration: none;
+        display: block;
+        text-align: center;
     }
     &__paragraph {
         font-size: 3.47vw;
-        line-height: 1.6em;
+        line-height: 1.65em;
         letter-spacing: 0.09em;
+        padding-left: 0.7em;
         +.work__paragraph {
             padding-top: 1em;
         }
+    }
+    &__description {
+        font-size: 3.47vw;
+        padding-top: 0.5em;
     }
     &__bold {
         font-weight: 700;
