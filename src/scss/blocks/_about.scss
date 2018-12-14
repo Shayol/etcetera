@@ -33,17 +33,16 @@
     @media(min-width: $desktop) {
         &__content {
             padding-top: 0;
-            padding-left: 16%;
-            padding-right: 16%;
+            padding-left: 20%;
+            padding-right: 25%;
             padding-bottom: 0;
             justify-content: center;
         }
         &__paragraph {
             font-size: 2vmax;
-            line-height: 1.25em;
+            line-height: 1.33em;
             font-family: Arial;
-            letter-spacing: .0815em;
-            padding-bottom: 4vh;
+            letter-spacing: .0816em;
         }
     }
 }

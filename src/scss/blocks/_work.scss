@@ -19,8 +19,8 @@
         max-height: 100%;
         overflow-y: scroll;
         overflow-x: hidden;
-        padding-left: 9.6vw;
-        padding-right: 9.6vw;
+        margin-left: 13.3vw;
+        margin-right: 13.3vw;
         -webkit-overflow-scrolling: touch;
     }
     &__item {
@@ -29,7 +29,7 @@
         align-items: center;
         justify-content: center;
         min-height: 100%;
-        padding: 15px 0;
+        height: 100%;
         &:last-child {
             margin-bottom: 9.65vh;
         }
@@ -38,7 +38,7 @@
         padding-top: 3.5vh;
     }
     &__media {
-        padding-top: 56.25%;
+        padding-top: 100%;
         width: 100%;
         position: relative;
         overflow: hidden;
@@ -220,29 +220,33 @@
         }
         &__item {
             padding: 0;
-            margin-bottom: 17.5vmin;
-            &:last-child {
-                margin-bottom: 0;
-            }
+            flex-direction: row;
+            justify-content: space-between;
+            padding-left: 15.5vw;
+            padding-right: 15.5vw;
         }
         &__text {
-            width: 42vmax;
+            flex-grow: 1;
             padding-top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         &__media {
-            width: 42vmax;
-            height: 23.625vmax;
+            width: 25.34vw;
+            height: 25.34vw;
             padding: 0;
             flex-shrink: 0;
             background: none;
+            margin-right: 6.25vw;
         }
         &__header {
             font-size: 1.735vmax;
             font-weight: 900;
             line-height: 1.2em;
             letter-spacing: 0.069em;
-            padding-top: 2.7em;
-            padding-bottom: 0.2em;
+            padding-bottom: 0.3em;
+            text-align: left;
         }
         &__subheader {
             color: #676666;
@@ -252,7 +256,6 @@
             line-height: 1.5em;
             letter-spacing: 0.052em;
             text-decoration: none;
-            text-align: center;
             display: block;
         }
         &__description {
