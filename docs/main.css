@@ -68,7 +68,7 @@ body {
   display: flex;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white; }
+  background-color: black; }
 
 canvas {
   display: block;
@@ -76,7 +76,7 @@ canvas {
   background-color: white; }
 
 .container {
-  margin: 0 5%;
+  padding: 0 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,7 +94,7 @@ canvas {
   background-color: white; }
   @media (min-width: 600px) {
     .container {
-      margin: 0 4%;
+      padding: 0 4%;
       height: 100%; } }
 
 .nav {
@@ -180,8 +180,8 @@ canvas {
   z-index: -1; }
   .about__content {
     font-size: 4.2vmin;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 9.6vw;
+    padding-right: 9.6vw;
     height: 100%;
     overflow: scroll;
     display: -webkit-box;
