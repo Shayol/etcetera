@@ -288,10 +288,6 @@
         &__nav {
             display: none;
         }
-        &__slider {
-            margin: 0;
-            padding: 0;
-        }
         &__item {
             display: flex;
             flex-direction: column;
@@ -316,9 +312,14 @@
         &__header {
             text-align: center;
             padding-top: 1.5em;
+            font-size: 2.5vmax;
         }
         &__subheader {
             text-align: center;
+            font-size: 1.5vmax;
+        }
+        &__paragraph {
+            font-size: 1.8vmax;
         }
         &__text {
             flex-grow: 0;
