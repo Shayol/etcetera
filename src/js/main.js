@@ -8,6 +8,7 @@ import { OBJLoader } from 'three-obj-mtl-loader';
 var OrbitControls = require('three-orbitcontrols');
 import "../assets/etcetera.obj";
 import '../img/favicon.ico';
+import '../img/icon.png';
 
 // let vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) * 0.01;
 // document.documentElement.style.setProperty('--vh', `${vh}px`);

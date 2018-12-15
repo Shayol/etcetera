@@ -39,9 +39,6 @@
         width: 100%;
         position: relative;
         overflow: hidden;
-        &\--zorro {
-            height: 40vw;
-        }
         &\--origami {
             border: 1px solid black;
         }
@@ -54,7 +51,7 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        width: 100%; // display: none;
+        width: 100%;
         &\--zorro {
             display: block;
         }
@@ -270,7 +267,7 @@
             text-align: left;
         }
         &__subheader {
-            font-size: 1.39vw;
+            font-size: 1.39vmax;
             margin-top: 0.3em;
             line-height: 1.5em;
             letter-spacing: 0.052em;
@@ -281,10 +278,50 @@
             padding-top: 1em;
         }
         &__paragraph {
-            font-size: 1.52vw;
+            font-size: 1.52vmax;
             line-height: 1.6em;
             letter-spacing: 0.03em;
             padding-left: 0;
+        }
+    }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        &__nav {
+            display: none;
+        }
+        &__slider {
+            margin: 0;
+            padding: 0;
+        }
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            height: 100%;
+            &:last-child {
+                margin-bottom: 9.65vh;
+            }
+        }
+        &__media {
+            padding-top: 100%;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            &\--origami {
+                border: 1px solid black;
+            }
+        }
+        &__header {
+            text-align: center;
+            padding-top: 1.5em;
+        }
+        &__subheader {
+            text-align: center;
+        }
+        &__text {
+            flex-grow: 0;
         }
     }
 }

@@ -3,8 +3,8 @@
     z-index: -1;
     &__content {
         font-size: 4.2vmin;
-        padding-left: 9.6vw;
-        padding-right: 9.6vw;
+        padding-left: 14.5vw;
+        padding-right: 14.5vw;
         height: 100%;
         overflow: scroll;
         display: flex;
@@ -33,14 +33,14 @@
     @media(min-width: $desktop) {
         &__content {
             padding-top: 0;
-            padding-left: 20%;
-            padding-right: 25%;
+            padding-left: 18%;
+            padding-right: 18%;
             padding-bottom: 0;
             justify-content: center;
         }
         &__paragraph {
-            font-size: 2vmax;
-            line-height: 1.33em;
+            font-size: 2vw;
+            line-height: 1.66em;
             font-family: Arial;
             letter-spacing: .0816em;
         }
