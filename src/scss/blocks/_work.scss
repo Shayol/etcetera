@@ -242,8 +242,8 @@
             padding: 0;
             flex-direction: row;
             justify-content: space-between;
-            padding-left: 15.5vw;
-            padding-right: 15.5vw;
+            padding-left: 15vw;
+            padding-right: 15vw;
         }
         &__text {
             flex-grow: 1;
@@ -253,8 +253,8 @@
             justify-content: center;
         }
         &__media {
-            width: 25.34vw;
-            height: 25.34vw;
+            width: 25.41vw;
+            height: 25.41vw;
             padding: 0;
             flex-shrink: 0;
             background: none;
@@ -266,26 +266,25 @@
             line-height: 1.2em;
             letter-spacing: 0.069em;
             padding-bottom: 0.3em;
+            padding-top: 0;
             text-align: left;
         }
         &__subheader {
-            color: #676666;
-            font-family: Arial;
             font-size: 1.39vw;
-            font-weight: 700;
+            margin-top: 0.3em;
             line-height: 1.5em;
             letter-spacing: 0.052em;
-            text-decoration: none;
-            display: block;
+            text-align: left;
         }
         &__description {
             font-size: 1.52vmax;
             padding-top: 1em;
         }
         &__paragraph {
-            font-size: 1.52vmax;
+            font-size: 1.52vw;
             line-height: 1.6em;
             letter-spacing: 0.03em;
+            padding-left: 0;
         }
     }
 }
