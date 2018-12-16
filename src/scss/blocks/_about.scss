@@ -45,4 +45,13 @@
             letter-spacing: .0816em;
         }
     }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        &__content {
+            padding: 0 23.5%;
+        }
+        &__paragraph {
+            font-size: 2.3vmax;
+            line-height: 1.95em;
+        }
+    }
 }
