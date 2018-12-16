@@ -28,11 +28,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 100%;
-        height: 100%;
-        &:last-child {
-            margin-bottom: 9.65vh;
-        }
+        min-height: 100%; // height: 100%;
+        margin-bottom: 9.65vmin;
     }
     &__media {
         padding-top: 100%;
@@ -236,6 +233,7 @@
             padding: 0;
             flex-direction: row;
             justify-content: space-between;
+            margin-bottom: 0;
             padding-left: 15vw;
             padding-right: 15vw;
         }
