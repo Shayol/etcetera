@@ -8,7 +8,6 @@
     width: 100%;
     &__item {
         text-align: center;
-        font-size: 5vw;
     }
     &__header {
         font-size: 5vw;
@@ -39,9 +38,6 @@
             line-height: 1.71em;
             letter-spacing: 0.05em;
         }
-        &__item {
-            font-size: 2.43vw;
-        }
         &__text {
             font-size: 2vw;
             line-height: 1.71em;
@@ -50,6 +46,14 @@
         &__mail,
         &__phone {
             padding-bottom: 4.15vh;
+        }
+    }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        &__header {
+            font-size: 3.255vw;
+        }
+        &__text {
+            font-size: 3.255vw;
         }
     }
 }
