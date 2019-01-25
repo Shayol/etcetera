@@ -1,0 +1,39 @@
+{
+  "icons": [
+    {
+      "src": "icon_512x512.f173487ec890f0943fc525024960c764.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_384x384.fe43e6348e1d3f0a98de471f86e7e863.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_256x256.b675cfb3aa4d4e77066b6fd8f0c3cc45.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_192x192.f97692634d4bf6771eea6dbc4aaca90d.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_128x128.13b1d4487e276dc750784b000b3b844f.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_96x96.b1a0337f59d56f96c1e4b394dd977992.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "etcetera",
+  "short_name": "etcetera",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "etcetera is a design studio"
+}
